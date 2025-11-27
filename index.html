@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Charlas del Evento</title>
+
     <style>
         :root {
             --rojo: #d62828;
@@ -25,17 +26,6 @@
             text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.4rem;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            color: #ddd;
-        }
-
         section {
             max-width: 800px;
             margin: 2rem auto;
@@ -47,29 +37,29 @@
         }
 
         h2 {
-            margin-top: 0;
             color: var(--rojo);
+            margin-top: 0;
         }
 
         .btn {
             display: inline-block;
             background: var(--rojo);
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.8rem 1.4rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
+            cursor: pointer;
             transition: 0.3s;
         }
 
         .btn:hover {
-            background: #b41f1f;
+            background: #b81f1f;
         }
 
-        /* Formulario oculto inicialmente */
         #formulario {
             display: none;
-            margin-top: 1.5rem;
+            margin-top: 1.8rem;
         }
 
         input, textarea {
@@ -87,6 +77,7 @@
             padding: 0.8rem 1.5rem;
             border-radius: 8px;
             cursor: pointer;
+            font-weight: bold;
         }
 
         button:hover {
@@ -103,12 +94,13 @@
     <script>
         function mostrarFormulario() {
             document.getElementById("formulario").style.display = "block";
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            document.getElementById("btnRegistro").style.display = "none";
         }
     </script>
-
 </head>
+
 <body>
+
     <header>
         <h1>Charlas del Evento</h1>
         <p>Aprende, conecta y participa</p>
@@ -117,7 +109,7 @@
     <section>
         <h2>Información del Evento</h2>
         <p>
-            Describe aquí las charlas, horarios, modalidad y todo lo que necesiten saber los asistentes.
+            Describe aquí las charlas, horarios, modalidad y toda información relevante.
         </p>
     </section>
 
@@ -125,19 +117,22 @@
         <h2>Registro</h2>
         <p>Haz clic en el botón para inscribirte:</p>
 
-        <a class="btn" href="#" onclick="mostrarFormulario()">Abrir Formulario</a>
+        <div id="btnRegistro" class="btn" onclick="mostrarFormulario()">
+            Abrir Formulario
+        </div>
 
-        <!-- Formulario interno oculto -->
+        <!-- Formulario oculto -->
         <div id="formulario">
             <h3>Formulario de Registro</h3>
+
             <form>
                 <label>Nombre:</label>
-                <input type="text" required>
+                <input type="text" required />
 
                 <label>Email:</label>
-                <input type="email" required>
+                <input type="email" required />
 
-                <label>Comentario o intereses:</label>
+                <label>Comentario:</label>
                 <textarea rows="4"></textarea>
 
                 <button type="submit">Enviar</button>
@@ -148,6 +143,6 @@
     <footer>
         © 2025 - Tu Evento
     </footer>
+
 </body>
 </html>
-
