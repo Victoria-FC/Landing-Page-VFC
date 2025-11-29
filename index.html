@@ -1,160 +1,137 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="gl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charlas del Evento</title>
-
-    <style>
-        :root {
-            --rojo: #d62828;
-            --negro: #111;
-            --gris: #f5f5f5;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--gris);
-            color: var(--negro);
-        }
-
-        header {
-            background: var(--negro);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-        }
-
-        header p {
-            margin-top: .5rem;
-            color: #ccc;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 6px solid var(--rojo);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            margin-top: 0;
-            color: var(--rojo);
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--rojo);
-            color: white;
-            padding: .8rem 1.6rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: .3s;
-        }
-
-        .btn:hover {
-            background: #b12020;
-        }
-
-        /* Formulario oculto hasta pulsar el botón */
-        #formulario {
-            display: none;
-            margin-top: 1.5rem;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: .7rem;
-            margin-bottom: 1rem;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background: var(--negro);
-            color: white;
-            border: none;
-            padding: .8rem 1.4rem;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #222;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #555;
-        }
-    </style>
-
-    <script>
-        function abrirFormulario() {
-            document.getElementById("formulario").style.display = "block";
-            // desplaza la vista hacia el formulario
-            setTimeout(() => {
-                document.getElementById("formulario").scrollIntoView({ behavior: "smooth" });
-            }, 200);
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Xornadas: Claves para unha boa saúde mental e física</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin: 0 0 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #900; /* Vermello escuro */
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 15px 0;
+      font-weight: bold;
+    }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h2 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #900;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      color: #900;
+    }
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+  </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Charlas del Evento</h1>
-        <p>Aprende, conecta y participa</p>
-    </header>
+  <header>
+    <h1>I Xornadas: Claves para unha boa saúde mental e física</h1>
+    <p>Sábado, 28 de febreiro de 2026 · 9h a 20h</p>
+  </header>
 
-    <!-- SECCION 1: INFORMACIÓN -->
-    <section>
-        <h2>Información del Evento</h2>
-        <p><strong>Fecha:</strong> 15 de Junio de 2025</p>
-        <p><strong>Lugar:</strong> Centro Cultural de la Ciudad</p>
-        <p><strong>Descripción:</strong>  
-        Una jornada llena de charlas inspiradoras, networking, experiencias y aprendizajes con expertos del sector.</p>
-        <p>¡Te esperamos para compartir conocimiento y nuevas oportunidades!</p>
+  <nav>
+    <a href="#presentacion">Presentación</a>
+  </nav>
+
+  <nav>
+    <a href="#presentacion">Presentación</a>
+    <a href="#obxectivos">Obxectivos</a>
+    <a href="#ponentes">Poñentes</a>
+    <a href="#registro">Rexistro</a>
+  </nav>
+
+  <div class="hero">
+    <h2>Un espazo para o coidado integral</h2>
+    <p>Reflexión, aprendizaxe e benestar ao redor da saúde física e mental</p>
+  </div>
+
+  <div class="container">
+    <section id="presentacion" class="section">
+      <h2>Presentación</h2>
+      <p>Estas xornadas nacen coa vontade de ofrecer un espazo de formación, reflexión e encontro ao redor do coidado da saúde física e mental. A finalidade é proporcionar ás persoas asistentes ferramentas sinxelas e aplicables para mellorar o seu benestar tanto dentro como fóra do ámbito deportivo.</p>
+      <p>A actividade está dirixida a xogadoras e xogadores, persoal técnico, familias e calquera persoa interesada en aprender como coidar e reforzar a súa saúde física e emocional nun contexto deportivo.</p>
+      <p>A través desta proposta preténdese crear un espazo de aprendizaxe e encontro onde deportistas, familias e profesionais poidan compartir experiencias e adquirir estratexias útiles para unha práctica deportiva segura, consciente e saudable.</p>
+      <p>O obxectivo é que cada persoa, estea ou non vinculada ao deporte de maneira directa, poida atopar recursos que lle axuden a comprender mellor o seu corpo, xestionar as esixencias físicas e emocionais da vida diaria e adquirir hábitos que contribúan a unha mellor calidade de vida.</p>
+      <p>Ao longo dunha xornada formativa, diferentes especialistas relacionados coa saúde e o deporte impartirán charlas e sesións informativas pensadas para mellorar o benestar integral do público en xeral, facendo especial fincapé nas persoas relacionadas coa práctica deportiva.</p>
+      <p>Os contidos abordarán cuestións como a nutrición equilibrada, a prevención e recuperación de lesións, a importancia da saúde mental no rendemento, a igualdade no deporte, o coidado emocional, a atención en situacións de urxencia e outros aspectos fundamentais para desenvolver unha actividade física responsable e sostible no tempo.</p>
+      <p>A actividade está aberta a todas as persoas interesadas, independentemente da súa idade ou nivel de práctica, e resulta especialmente útil para quen desexe mellorar a súa saúde física e emocional nun contexto deportivo. O obxectivo final é que cada participante saia destas xornadas cunha visión máis completa do seu benestar e cun conxunto de estratexias que poida aplicar no seu día a día.</p>
     </section>
 
-    <!-- SECCION 2: REGISTRO -->
-    <section>
-        <h2>Registro</h2>
-        <p>Pulsa el botón para completar el formulario:</p>
-
-        <a class="btn" href="#" onclick="abrirFormulario()">Abrir Formulario</a>
-
-        <div id="formulario">
-            <h3>Formulario de Registro</h3>
-            <form>
-                <label>Nombre:</label>
-                <input type="text" required>
-
-                <label>Email:</label>
-                <input type="email" required>
-
-                <label>Comentario o intereses:</label>
-                <textarea rows="4"></textarea>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+    <section id="obxectivos" class="section">
+      <h2>Obxectivos</h2>
+      <p>- Ofrecer ferramentas prácticas para mellorar a saúde mental e física en contextos deportivos.</p>
+      <p>- Crear un espazo de encontro entre deportistas, familias e profesionais.</p>
+      <p>- Promover hábitos saudables e unha práctica deportiva consciente e segura.</p>
     </section>
 
-    <footer>
-        © 2025 - Tu Evento
-    </footer>
+    <section id="ponentes" class="section">
+      <h2>Poñentes</h2>
+      <p>Aquí poderás engadir a lista completa de especialistas, fotos e descricións breves das súas intervencións.</p>
+    </section>
+
+    <section id="registro" class="section">
+      <h2>Rexistro</h2>
+      <p>Podes inscribirte no seguinte enlace:</p>
+      <a style="background:#900;color:white;padding:12px 25px;border-radius:5px;text-decoration:none;font-weight:bold;" href="URL_DO_REXISTRO" target="_blank">Inscribirme ás Xornadas</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2026 · I Xornadas de Saúde</p>
+  </footer>
 
 </body>
 </html>
