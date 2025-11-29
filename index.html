@@ -8,7 +8,6 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Poppins',sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
-
   a { text-decoration:none; }
 
   /* Header hero */
@@ -27,32 +26,17 @@
     background: rgba(0,0,0,0.5);
     z-index:0;
   }
-  header .hero-content {
-    position: relative;
-    z-index:1;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  header h1 {
-    font-size:3em;
-    font-weight:700;
-    color:white;
-    margin-bottom:15px;
-  }
-  header p {
-    font-size:1.3em;
-    opacity:0.9;
-  }
+  header .hero-content { position: relative; z-index:1; max-width: 1000px; margin: 0 auto; }
+  header h1 { font-size:3em; font-weight:700; color:white; margin-bottom:15px; }
+  header p { font-size:1.3em; opacity:0.9; }
 
   /* Navegación */
   nav {
     display:flex; justify-content:center; flex-wrap:wrap;
     background:#000; position:sticky; top:0; z-index:10;
-    border-bottom: 3px solid #ff0000; /* línea roja debajo del nav */
+    border-bottom: 3px solid #ff0000;
   }
-  nav a {
-    color:#fff; margin:5px 20px; padding:12px 0; font-weight:600; transition: all 0.3s ease;
-  }
+  nav a { color:#fff; margin:5px 20px; padding:12px 0; font-weight:600; transition: all 0.3s ease; }
   nav a:hover { color:#ff0000; transform:translateY(-3px); }
 
   /* Hero info cards */
@@ -63,14 +47,12 @@
     background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
     border-radius:15px; padding:25px 20px; width:180px; text-align:center;
     box-shadow:0 4px 20px rgba(0,0,0,0.2);
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+    display:flex; flex-direction: column; align-items: center;
     opacity:0; transform: translateY(30px);
     transition: all 0.6s ease;
   }
   .hero-card.visible { opacity:1; transform: translateY(0); }
-  .hero-card img { width:50px; height:50px; filter: invert(1); margin-bottom:10px; }
+  .hero-card img { width:50px; height:50px; margin-bottom:10px; }
   .hero-card span { display:block; text-align:center; color:white; font-weight:500; }
   .hero-card:hover { transform: translateY(-5px) scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
 
@@ -79,47 +61,31 @@
     padding:18px 40px; border-radius:30px; font-weight:bold; font-size:1.3em;
     transition: all 0.3s ease; box-shadow:0 4px 15px rgba(0,0,0,0.2);
   }
-  .registro-button:hover {
-    background:#000; box-shadow:0 6px 20px rgba(0,0,0,0.25), 0 0 20px #ff0000;
-    transform:scale(1.05);
-  }
+  .registro-button:hover { background:#000; box-shadow:0 6px 20px rgba(0,0,0,0.25), 0 0 20px #ff0000; transform:scale(1.05); }
 
   /* Secciones uniformes */
   .container { max-width:1000px; margin:50px auto; padding:0 20px; }
   .section {
-    background:white;
-    padding:40px 30px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    margin-bottom:40px;
-    opacity:0; transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    background:white; padding:40px 30px; border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08); margin-bottom:40px;
+    opacity:0; transform: translateY(30px); transition: all 0.8s ease-out;
   }
   .section.visible { opacity:1; transform: translateY(0); }
   .section h2 {
-    color:#900;
-    margin-bottom:10px;
-    font-size:1.8em;
-    position:relative;
+    color:#900; margin-bottom:20px; font-size:1.8em;
+    position:relative; display:inline-block;
   }
   .section h2::after {
-    content:"";
-    display:block;
-    width:60px;
-    height:2px;
-    background:#ff0000;
-    margin-top:6px;
-    border-radius:1px;
+    content:""; display:block; width:100%; max-width:200px; height:3px;
+    background:#ff0000; margin-top:6px; border-radius:1px;
   }
   .section p, .section ul li { margin-bottom:12px; }
 
-  /* Logos entidades */
+  /* Logos entidades (sin línea roja) */
   .partners {
     display:flex; justify-content:center; gap:30px; flex-wrap:wrap; padding:30px 0; background:#f5f5f5;
-    border-top:2px solid #ff0000;
     margin-bottom:20px;
-    opacity:0; transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    opacity:0; transform: translateY(30px); transition: all 0.8s ease-out;
   }
   .partners.visible { opacity:1; transform: translateY(0); }
   .partners img { height:50px; object-fit:contain; transition: transform 0.3s ease; }
@@ -127,12 +93,17 @@
 
   /* Footer */
   footer {
-    background:#000; color:#fff; text-align:center; padding:40px 20px;
-    border-top:2px solid #ff0000;
+    background:#000; color:#fff; padding:40px 20px; border-top:2px solid #ff0000;
   }
-  footer .contact-info { margin-bottom:20px; }
-  footer .social-icons img { width:30px; height:30px; margin:0 10px; vertical-align:middle; }
-  footer .club-logo { width:60px; margin-top:15px; }
+  .footer-container { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; max-width:1000px; margin:0 auto; gap:20px; }
+  .footer-left .club-logo { width:120px; height:auto; }
+  .footer-right { flex:1; min-width:200px; }
+  .footer-right .contact-info p { margin-bottom:8px; }
+  .footer-right a { color:#fff; text-decoration:none; }
+  .footer-right a:hover { color:#ff0000; }
+  .footer-right .social-icons { margin-top:10px; }
+  .footer-right .social-icons img { width:30px; height:30px; margin-right:10px; vertical-align:middle; transition: transform 0.3s ease; }
+  .footer-right .social-icons img:hover { transform:scale(1.1); }
 
   /* Responsive */
   @media(max-width:768px){
@@ -160,15 +131,15 @@
 
     <div class="hero-cards">
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
+        <img src="images/map-pin.png" alt="Lugar">
         <span>Santiago de Compostela</span>
       </div>
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
+        <img src="images/calendar.png" alt="Data">
         <span>28 de febreiro de 2026</span>
       </div>
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
+        <img src="images/clock.png" alt="Horario">
         <span>9:00 - 20:00</span>
       </div>
     </div>
@@ -219,16 +190,25 @@
 </div>
 
 <footer>
-  <div class="contact-info">
-    <p>Contacto: info@clubexemplo.gal | Teléfono: +34 123 456 789</p>
-  </div>
-  <div class="social-icons">
-    <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-    <a href="#"><img src="images/youtube.png" alt="Youtube"></a>
-    <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
-  </div>
-  <div>
-    <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club">
+  <div class="footer-container">
+    <!-- Escudo a la izquierda -->
+    <div class="footer-left">
+      <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club">
+    </div>
+
+    <!-- Información y redes a la derecha -->
+    <div class="footer-right">
+      <div class="contact-info">
+        <p>Dirección: Rúa Exemplo, 123, Santiago de Compostela</p>
+        <p>Email: <a href="mailto:info@clubexemplo.gal">info@clubexemplo.gal</a></p>
+        <p>Teléfono: +34 123 456 789</p>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png" alt="Youtube"></a>
+        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -240,13 +220,8 @@
 
   function checkVisible() {
     const scrollY = window.pageYOffset + window.innerHeight * 0.8;
-
-    sections.forEach(s => {
-      if(scrollY > s.offsetTop) s.classList.add('visible');
-    });
-    heroCards.forEach(c => {
-      if(scrollY > c.offsetTop) c.classList.add('visible');
-    });
+    sections.forEach(s => { if(scrollY > s.offsetTop) s.classList.add('visible'); });
+    heroCards.forEach(c => { if(scrollY > c.offsetTop) c.classList.add('visible'); });
     if(scrollY > partners.offsetTop) partners.classList.add('visible');
   }
 
