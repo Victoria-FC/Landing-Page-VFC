@@ -39,6 +39,13 @@
       margin: 5px 15px;
       padding: 10px 0;
       font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background: white;
+      color: #900;
+      border-radius: 5px;
+      padding: 10px 15px;
     }
     .hero {
       background: url('https://images.unsplash.com/photo-1571019613914-85f342c55f85?auto=format&fit=crop&w=1400&q=60') center/cover;
@@ -60,30 +67,47 @@
       position:relative;
       display:flex;
       justify-content:center;
-      gap:40px;
+      gap:50px;
       flex-wrap:wrap;
       text-align:center;
       padding:20px 10px;
+      font-size:1.2em;
+      align-items:center;
     }
-    .info-card {
-      background:rgba(255,255,255,0.1);
-      border:2px solid #900;
-      padding:20px;
-      border-radius:12px;
+    .info-item {
       display:flex;
       flex-direction:column;
       align-items:center;
       gap:10px;
-      font-size:1em;
-      color:white;
-      backdrop-filter:blur(3px);
-      flex: 1 1 200px;
-      max-width: 220px;
+      transition: transform 0.3s ease;
     }
-    .info-card img {
-      width:50px;
-      height:50px;
+    .info-item img {
+      width:60px;
+      height:60px;
       filter:invert(1);
+      transition: transform 0.3s ease;
+    }
+    .info-item:hover {
+      transform: translateY(-8px);
+    }
+    .info-item:hover img {
+      transform: scale(1.1);
+    }
+    .registro-button {
+      display:inline-block;
+      background:#900;
+      color:white;
+      padding:15px 30px;
+      border-radius:5px;
+      text-decoration:none;
+      font-weight:bold;
+      margin-top:30px;
+      font-size:1.2em;
+      transition: all 0.3s ease;
+    }
+    .registro-button:hover {
+      background:#b30000;
+      transform: scale(1.05);
     }
     .container {
       max-width: 900px;
@@ -112,16 +136,17 @@
       header h1 { font-size: 1.8em; }
       header p { font-size: 1em; }
       .hero { padding: 60px 15px; }
-      .hero-content { gap: 20px; }
-      .info-card { max-width: 100%; font-size: 0.95em; padding: 15px; }
+      .hero-content { gap: 20px; font-size:1em; }
       nav a { margin: 5px 10px; padding: 8px 0; font-size: 0.95em; }
       .section h2 { font-size: 1.4em; }
+      .info-item img { width:50px; height:50px; }
     }
     @media (max-width: 480px) {
       .hero { padding: 40px 10px; }
       header h1 { font-size: 1.5em; }
-      .info-card img { width:40px; height:40px; }
-      .info-card { padding: 12px; font-size: 0.9em; }
+      .info-item img { width:40px; height:40px; }
+      .hero-content { gap:15px; font-size:0.95em; }
+      .registro-button { font-size:1em; padding:12px 25px; }
     }
   </style>
 </head>
@@ -147,19 +172,21 @@
     </div>
 
     <div class="hero-content">
-      <div class="info-card">
+      <div class="info-item">
         <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
         <span>Santiago de Compostela</span>
       </div>
-      <div class="info-card">
+      <div class="info-item">
         <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/calendar.svg" alt="Data">
         <span>28 de febreiro de 2026</span>
       </div>
-      <div class="info-card">
+      <div class="info-item">
         <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/clock.svg" alt="Horario">
         <span>9:00 - 20:00</span>
       </div>
     </div>
+
+    <a class="registro-button" href="#" target="_blank">Inscribirme ás Xornadas</a>
   </div>
 
   <div class="container">
@@ -181,7 +208,7 @@
     <section id="registro" class="section">
       <h2>Rexistro</h2>
       <p>Podes inscribirte no seguinte enlace:</p>
-      <a style="background:#900;color:white;padding:12px 25px;border-radius:5px;text-decoration:none;font-weight:bold;" href="#" target="_blank">Inscribirme ás Xornadas</a>
+      <a class="registro-button" href="#" target="_blank">Inscribirme ás Xornadas</a>
     </section>
   </div>
 
