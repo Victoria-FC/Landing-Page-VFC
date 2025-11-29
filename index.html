@@ -65,52 +65,56 @@
       backdrop-filter:blur(3px);
       z-index:0;
     }
-    .hero-content {
-      position:relative;
-      display:flex;
-      justify-content:center;
-      gap:50px;
-      flex-wrap:wrap;
-      text-align:center;
-      align-items:center;
-      z-index:1;
+    .hero-glass {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 20px 10px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 15px;
+      margin-bottom: 30px;
     }
     .info-item {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:10px;
-      transition: transform 0.3s ease;
-      background: rgba(0,0,0,0.25);
-      border-radius: 50%;
-      padding: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      color: white;
     }
     .info-item img {
-      width:60px;
-      height:60px;
-      filter:invert(1);
-      transition: transform 0.3s ease;
+      width: 60px;
+      height: 60px;
+      filter: invert(1);
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
     .info-item:hover {
       transform: scale(1.15);
+      color: #ffdddd;
+    }
+    .info-item:hover img {
+      filter: invert(0.9) sepia(0.3) saturate(5) hue-rotate(-10deg);
     }
     .registro-button {
       position: relative;
-      z-index:1;
-      display:inline-block;
-      background:#900;
-      color:white;
-      padding:18px 35px;
-      border-radius:5px;
-      text-decoration:none;
-      font-weight:bold;
-      margin-top:40px;
-      font-size:1.3em;
+      z-index: 1;
+      display: inline-block;
+      background: #900;
+      color: white;
+      padding: 18px 35px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3em;
       transition: all 0.3s ease;
     }
     .registro-button:hover {
-      background:#b30000;
+      background: #b30000;
       transform: scale(1.05);
     }
     .container {
@@ -140,17 +144,14 @@
       header h1 { font-size: 1.8em; }
       header p { font-size: 1em; }
       .hero { padding: 80px 15px; }
-      .hero-content { gap: 25px; }
-      .info-item { padding: 15px; }
+      .hero-glass { gap: 25px; padding:15px; }
       .info-item img { width:50px; height:50px; }
-      nav a { margin: 5px 10px; padding: 8px 0; font-size: 0.95em; }
-      .section h2 { font-size: 1.4em; }
       .registro-button { font-size:1.1em; padding:15px 30px; }
     }
     @media (max-width: 480px) {
       .hero { padding: 60px 10px; }
       .info-item img { width:40px; height:40px; }
-      .hero-content { gap:15px; }
+      .hero-glass { gap:15px; }
       .registro-button { font-size:1em; padding:12px 25px; }
     }
   </style>
@@ -172,7 +173,7 @@
   <div class="hero">
     <div class="hero-overlay"></div>
 
-    <div class="hero-content">
+    <div class="hero-glass">
       <div class="info-item">
         <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide@latest/icons/map-pin.svg" alt="Lugar">
         <span>Santiago de Compostela</span>
