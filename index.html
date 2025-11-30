@@ -81,23 +81,18 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   transition:0.3s;
   cursor:pointer;
 }
-.timeline-buttons button:hover {
-  background:#f5f5f5;
-}
-.timeline-buttons button.active {
-  background:#900;
-  color:#fff;
-}
+.timeline-buttons button:hover { background:#f5f5f5; }
+.timeline-buttons button.active { background:#900; color:#fff; border-color:#900; }
 
 .timeline-list {
   position: relative;
   margin: 30px 0;
-  padding-left: 80px;
+  padding-left: 60px; /* Ajustado para alinear con bullets */
 }
 .timeline-list::before {
   content:'';
   position:absolute;
-  left:40px;
+  left:20px; /* Línea vertical más cerca del contenido */
   top:0;
   bottom:0;
   width:4px;
@@ -119,14 +114,11 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   gap:10px;
   box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
-.timeline-event.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+.timeline-event.visible { opacity: 1; transform: translateX(0); }
 .timeline-event::before {
   content: '';
   position: absolute;
-  left: 32px;
+  left:12px; /* Centrado respecto a la línea */
   top: 50%;
   width: 16px;
   height: 16px;
@@ -146,16 +138,8 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   border-left: 5px dashed #aaa;
 }
 
-.timeline-event .time {
-  font-weight: 600;
-  color:#900;
-  margin-right:8px;
-}
-.timeline-event img {
-  width:20px;
-  height:20px;
-  flex-shrink:0;
-}
+.timeline-event .time { font-weight: 600; color:#900; margin-right:8px; }
+.timeline-event img { width:20px; height:20px; flex-shrink:0; }
 
 /* ---------------------- PARTNERS ---------------------- */
 .partners { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:45px 0; }
@@ -269,11 +253,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 
 <!-- PROGRAMA / TIMELINE -->
 <section id="programa" class="section">
-  <h2>
-    <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar-days.svg" 
-         alt="Calendario" style="width:28px; vertical-align:middle; margin-right:8px;">
-    Programa
-  </h2>
+  <h2>Programa</h2>
   <p>Ao longo da xornada formativa, diferentes especialistas impartirán charlas e sesións para mellorar o benestar integral.</p>
   <p>Selecciona mañá ou tarde para ver a programación correspondente.</p>
 
