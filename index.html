@@ -65,7 +65,7 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
 .objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; }
 
-/* ---------------------- PROGRAMA (CORREGIDO) ---------------------- */
+/* ---------------------- PROGRAMA (TIMELINE CORREGIDO Y ESTILIZADO) ---------------------- */
 .timeline-buttons {
   text-align: center;
   margin-bottom: 30px;
@@ -93,13 +93,13 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .timeline-list {
   position: relative;
   margin: 30px 0;
-  padding-left: 90px; /* Reducido para acercar las cajas a la línea */
+  padding-left: 90px; /* Espacio para que las cajas se acerquen a la línea */
 }
-/* LÍNEA VERTICAL (AJUSTADA) */
+/* LÍNEA VERTICAL */
 .timeline-list::before {
   content: '';
   position: absolute;
-  left: 36px;    /* Inicia la línea aquí */
+  left: 36px;   /* Inicia la línea aquí (posición clave) */
   top: 0;
   bottom: 0;
   width: 4px;
@@ -111,62 +111,62 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   margin-bottom: 25px;
   padding: 14px 22px;
   border-radius: 12px;
-  background: #fff; /* Fondo blanco para las cajas */
+  background: #fff; 
   color: #333;
   opacity: 0;
-  transform: translateX(30px); /* Cambiado de nuevo para una animación más sutil */
+  transform: translateX(30px);
   transition: transform 0.6s ease, opacity 0.6s ease;
   display: flex;
-  align-items: center; /* Alinea los iconos verticalmente */
+  align-items: center; /* Alinea contenido verticalmente */
   gap: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
 }
 .timeline-event.visible {
   opacity: 1;
   transform: translateX(0);
 }
-/* PUNTO DE EVENTO (CORREGIDO Y CENTRADO) */
+
+/* PUNTO DE EVENTO (CORREGIDO Y CENTRADO sobre la línea en 36px) */
 .timeline-event::before {
   content: '';
   position: absolute;
-  left: 30px;    /* Centra el círculo de 16px (36-8=28, ajustado a 30) */
+  left: 30px;    /* (36px de la línea) - (16px de ancho / 2) = 28px, ajustado a 30px para estética */
   top: 50%;
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  transform: translateY(-50%) scale(0.5); /* Añadida animación inicial */
-  border: 3px solid #fff;
+  transform: translateY(-50%) scale(0.5); 
+  border: 3px solid #fff; /* Borde blanco para separar del fondo de la caja */
   opacity: 0;
   z-index: 10;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 .timeline-event.visible::before { transform: translateY(-50%) scale(1); opacity:1; }
 
-
-/* Estilos por tipo de evento - Coincidiendo con la imagen (Rojo para charla, Gris para pausa) */
-.timeline-event.charla::before { background: #c44; } /* Rojo */
-.timeline-event.pausa::before { background: #aaa; } /* Gris */
+/* ESTILOS POR TIPO DE EVENTO */
+.timeline-event.charla::before { background: #c44; } /* Rojo/Marrón para las charlas */
+.timeline-event.pausa::before { background: #aaa; } /* Gris para las pausas */
 
 .timeline-event.charla {
-  background: linear-gradient(135deg, #ffe5e5, #fff); /* Fondo degradado tenue */
-  border-left: 5px solid #c44; /* Borde izquierdo rojo */
+  background: linear-gradient(135deg, #ffe5e5, #fff); 
+  border-left: 5px solid #c44; /* Borde de color sólido */
 }
 .timeline-event.pausa {
-  background: linear-gradient(135deg, #e5e5e5, #fff); /* Fondo degradado tenue */
-  border-left: 5px dashed #aaa; /* Borde izquierdo gris a rayas */
+  background: linear-gradient(135deg, #e5e5e5, #fff); 
+  border-left: 5px dashed #aaa; /* Borde a rayas para pausas */
 }
 
 .timeline-event .time {
   font-weight: 600;
   color: #900;
   margin-right: 8px;
-  min-width: 90px; /* Asegura que la hora tenga un espacio definido */
+  min-width: 90px;
 }
 .timeline-event img {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  /* Filtro para colorear los iconos (opcional, si los iconos son oscuros) */
+  /* Filtro para colorear los iconos (opcional) */
   filter: invert(20%) sepia(90%) saturate(7000%) hue-rotate(330deg) brightness(90%) contrast(100%);
 }
 
