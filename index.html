@@ -45,7 +45,7 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .container { max-width:1000px; margin:50px auto; padding:0 20px; }
 .section { background: linear-gradient(145deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95)); color:#333; padding:45px 35px; border-radius:16px; box-shadow:0 12px 30px rgba(0,0,0,0.12); margin-bottom:45px; backdrop-filter: blur(6px); border: 1px solid rgba(200,200,200,0.3); opacity:0; transform:translateY(30px); transition:0.8s ease-out; }
 .section.visible { opacity:1; transform:translateY(0); }
-.section h2 { color:#900; font-size:1.85em; margin-bottom:22px; position:relative; font-weight:700; }
+.section h2 { color:#900; font-size:1.85em; margin-bottom:22px; position:relative; font-weight:700; display:flex; align-items:center; gap:8px; }
 .section h2::after { content:""; display:block; width:100px; height:3px; background:#ff0000; margin-top:6px; border-radius:1px; }
 .section p, .section ul li { margin-bottom:14px; font-size:1.05em; }
 
@@ -65,110 +65,49 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
 .objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; }
 
-/* ---------------------- PROGRAMA (TIMELINE CORREGIDO Y ESTILIZADO) ---------------------- */
-.timeline-buttons {
-  text-align: center;
-  margin-bottom: 30px;
-}
+/* ---------------------- PROGRAMA (Mejorado) ---------------------- */
+.timeline-buttons { text-align:center; margin-bottom:30px; }
 .timeline-buttons button {
-  background: #fff;
-  border: 2px solid #900;
-  color: #900;
-  padding: 12px 28px;
-  border-radius: 30px;
-  margin: 0 10px;
-  font-weight: 600;
-  transition: 0.3s;
-  cursor: pointer;
+  background:#fff; border:2px solid #900; color:#900;
+  padding:12px 28px; border-radius:30px; margin:0 10px; font-weight:600; transition:0.3s; cursor:pointer;
 }
-.timeline-buttons button:hover {
-  background: #f5f5f5;
-}
-.timeline-buttons button.active {
-  background: #900;
-  color: #fff;
-  border-color: #900;
-}
+.timeline-buttons button:hover { background:#f5f5f5; }
+.timeline-buttons button.active { background:#900; color:#fff; border-color:#900; }
 
-.timeline-list {
-  position: relative;
-  margin: 30px 0;
-  padding-left: 90px; /* Espacio para que las cajas se acerquen a la línea */
-}
-/* LÍNEA VERTICAL */
-.timeline-list::before {
-  content: '';
-  position: absolute;
-  left: 36px;   /* Inicia la línea aquí (posición clave) */
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #900;
-}
+.timeline-list { position: relative; margin: 30px 0; padding-left: 80px; }
+.timeline-list::before { content:''; position:absolute; left:40px; top:0; bottom:0; width:4px; background:#900; }
 
 .timeline-event {
-  position: relative;
-  margin-bottom: 25px;
-  padding: 14px 22px;
-  border-radius: 12px;
-  background: #fff; 
-  color: #333;
-  opacity: 0;
-  transform: translateX(30px);
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  display: flex;
-  align-items: center; /* Alinea contenido verticalmente */
-  gap: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+  position: relative; margin-bottom: 25px; padding: 14px 22px; border-radius: 12px;
+  background:#fff; color:#333; opacity: 0; transform: translateX(-40px);
+  transition: transform 0.6s ease, opacity 0.6s ease; display: flex; align-items:center; gap:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
-.timeline-event.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* PUNTO DE EVENTO (CORREGIDO Y CENTRADO sobre la línea en 36px) */
+.timeline-event.visible { opacity: 1; transform: translateX(0); }
 .timeline-event::before {
-  content: '';
-  position: absolute;
-  left: 30px;    /* (36px de la línea) - (16px de ancho / 2) = 28px, ajustado a 30px para estética */
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  transform: translateY(-50%) scale(0.5); 
-  border: 3px solid #fff; /* Borde blanco para separar del fondo de la caja */
-  opacity: 0;
-  z-index: 10;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  content: ''; position: absolute; left: 32px; top: 50%; width: 16px; height: 16px; border-radius: 50%;
+  transform: translateY(-50%); border: 3px solid #fff;
 }
-.timeline-event.visible::before { transform: translateY(-50%) scale(1); opacity:1; }
-
-/* ESTILOS POR TIPO DE EVENTO */
-.timeline-event.charla::before { background: #c44; } /* Rojo/Marrón para las charlas */
-.timeline-event.pausa::before { background: #aaa; } /* Gris para las pausas */
+.timeline-event.charla::before { background:#c44; }
+.timeline-event.pausa::before { background:#aaa; }
 
 .timeline-event.charla {
-  background: linear-gradient(135deg, #ffe5e5, #fff); 
-  border-left: 5px solid #c44; /* Borde de color sólido */
+  background: linear-gradient(135deg, #ffe5e5, #fff);
+  border-left: 5px solid #c44;
 }
 .timeline-event.pausa {
-  background: linear-gradient(135deg, #e5e5e5, #fff); 
-  border-left: 5px dashed #aaa; /* Borde a rayas para pausas */
+  background: linear-gradient(135deg, #e5e5e5, #fff);
+  border-left: 5px dashed #aaa;
 }
 
-.timeline-event .time {
-  font-weight: 600;
-  color: #900;
-  margin-right: 8px;
-  min-width: 90px;
-}
-.timeline-event img {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  /* Filtro para colorear los iconos (opcional) */
-  filter: invert(20%) sepia(90%) saturate(7000%) hue-rotate(330deg) brightness(90%) contrast(100%);
-}
+.timeline-event .time { font-weight: 600; color:#900; margin-right:8px; }
+.timeline-event img { width:20px; height:20px; flex-shrink:0; }
+
+/* Etiquetas de bloque (opcional) */
+.block-labels { display:flex; justify-content:center; gap:12px; margin-top:10px; }
+.block-labels .label { font-size:0.9em; padding:6px 10px; border-radius:16px; border:1px solid #ddd; }
+.label-charla { background:#fff0f0; border-color:#f3c3c3; }
+.label-pausa { background:#f5f5f5; }
 
 /* ---------------------- PARTNERS ---------------------- */
 .partners { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:45px 0; }
@@ -195,6 +134,24 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   header h1 { font-size:2.6em; }
   .hero-card { width:150px; padding:25px 20px; }
   .registro-button { font-size:1.2em; padding:18px 35px; }
+}
+@media(max-width:600px){
+  /* Programa compacto en móviles */
+  .timeline-list { padding-left:0; }
+  .timeline-list::before { display:none; }
+  .timeline-event {
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+    border-left:none;
+    border-top:4px solid #900;
+    transform: translateY(20px);
+  }
+  .timeline-event.visible { transform: translateY(0); }
+  .timeline-event.charla { border-top:4px solid #c44; }
+  .timeline-event.pausa { border-top:4px dashed #aaa; }
+  .timeline-event::before { display:none; }
+  .timeline-buttons button { padding:10px 22px; }
 }
 @media(max-width:480px){
   header h1 { font-size:2em; }
@@ -280,66 +237,75 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   </div>
 </section>
 
+<!-- PROGRAMA / TIMELINE -->
 <section id="programa" class="section">
-  <h2>Programa</h2>
-  <p>Ao longo da xornada formativa, diferentes especialistas impartirán charlas e sesións para mellorar o benestar integral.</p>
-  <p>Selecciona mañá ou tarde para ver a programación correspondente.</p>
+  <h2>
+    <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar-days.svg" alt="Calendario" style="width:28px;">
+    Programa
+  </h2>
+  <p>Ao longo da xornada formativa, diferentes especialistas do ámbito da saúde e do deporte impartirán charlas e sesións dirixidas a mellorar o benestar integral das persoas participantes.</p>
+  <p>Aquí poderás ver os distintos bloques da xornada. Selecciona mañá ou tarde para amosar a programación correspondente.</p>
 
-  <div class="timeline-buttons">
-    <button id="btn-mana">Mañá</button>
-    <button id="btn-tarde">Tarde</button>
-  </div>
+  <div class="timeline-buttons">
+    <button id="btn-mana">Mañá</button>
+    <button id="btn-tarde">Tarde</button>
+  </div>
 
-  <div id="timeline-mana" class="timeline-list">
-    <div class="timeline-event charla">
-      <span class="time">9:00 - 10:00</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/mic.svg" alt="Charla">
-      Charla: Nutrición Deportiva
-    </div>
-    <div class="timeline-event pausa">
-      <span class="time">10:00 - 10:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/coffee.svg" alt="Pausa">
-      Pausa Café
-    </div>
-    <div class="timeline-event charla">
-      <span class="time">10:30 - 11:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Mesa Redonda">
-      Mesa Redonda: Estrés e Rendemento
-    </div>
-    <div class="timeline-event pausa">
-      <span class="time">11:30 - 12:00</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/pause.svg" alt="Descanso">
-      Descanso
-    </div>
-    <div class="timeline-event charla">
-      <span class="time">12:00 - 13:00</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="Taller">
-      Taller: Preparación Mental
-    </div>
-  </div>
+  <div class="block-labels" aria-hidden="true">
+    <span class="label label-charla">Charlas e talleres</span>
+    <span class="label label-pausa">Pausas</span>
+  </div>
 
-  <div id="timeline-tarde" class="timeline-list" style="display:none;">
-    <div class="timeline-event charla">
-      <span class="time">15:00 - 16:00</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/activity.svg" alt="Taller">
-      Taller: Rehabilitación Física
-    </div>
-    <div class="timeline-event pausa">
-      <span class="time">16:00 - 16:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/coffee.svg" alt="Pausa">
-      Pausa Café
-    </div>
-    <div class="timeline-event charla">
-      <span class="time">16:30 - 17:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/refresh-cw.svg" alt="Charla">
-      Charla: Recuperación Post-Competición
-    </div>
-    <div class="timeline-event charla">
-      <span class="time">17:30 - 18:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Mesa Redonda">
-      Mesa Redonda Final
-    </div>
-  </div>
+  <div id="timeline-mana" class="timeline-list">
+    <div class="timeline-event charla">
+      <span class="time">9:00 - 10:00</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/mic.svg" alt="Charla">
+      Charla: Nutrición Deportiva
+    </div>
+    <div class="timeline-event pausa">
+      <span class="time">10:00 - 10:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/coffee.svg" alt="Pausa">
+      Pausa Café
+    </div>
+    <div class="timeline-event charla">
+      <span class="time">10:30 - 11:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Mesa Redonda">
+      Mesa Redonda: Estrés e Rendemento
+    </div>
+    <div class="timeline-event pausa">
+      <span class="time">11:30 - 12:00</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/pause.svg" alt="Descanso">
+      Descanso
+    </div>
+    <div class="timeline-event charla">
+      <span class="time">12:00 - 13:00</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="Taller">
+      Taller: Preparación Mental
+    </div>
+  </div>
+
+  <div id="timeline-tarde" class="timeline-list" style="display:none;">
+    <div class="timeline-event charla">
+      <span class="time">15:00 - 16:00</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/activity.svg" alt="Taller">
+      Taller: Rehabilitación Física
+    </div>
+    <div class="timeline-event pausa">
+      <span class="time">16:00 - 16:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/coffee.svg" alt="Pausa">
+      Pausa Café
+    </div>
+    <div class="timeline-event charla">
+      <span class="time">16:30 - 17:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/refresh-cw.svg" alt="Charla">
+      Charla: Recuperación Post-Competición
+    </div>
+    <div class="timeline-event charla">
+      <span class="time">17:30 - 18:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Mesa Redonda">
+      Mesa Redonda Final
+    </div>
+  </div>
 </section>
 
 <!-- REGISTRO -->
@@ -380,7 +346,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 </footer>
 
 <!-- BOTÓN VOLVER ARRIBA -->
-<div id="topBtn">↑</div>
+<div id="topBtn" aria-label="Volver arriba">↑</div>
 
 <script>
 // ================= HERO CARDS & SECTIONS =================
@@ -422,34 +388,24 @@ function showTimeline(timelineToShow, btnActive, btnInactive) {
   (timelineToShow === timelineMana ? timelineTarde : timelineMana).style.display = 'none';
   btnActive.classList.add('active');
   btnInactive.classList.remove('active');
-}
 
-const timelineObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      timelineObserver.unobserve(entry.target);
-    }
+  // Animación: resetear y observar de nuevo
+  timelineToShow.querySelectorAll('.timeline-event').forEach(ev => {
+    ev.classList.remove('visible');
+    setTimeout(() => ev.classList.add('visible'), 50);
   });
-}, { threshold: 0.1 });
-
-function initTimeline(timeline) {
-  timeline.querySelectorAll('.timeline-event').forEach(ev => timelineObserver.observe(ev));
 }
 
 btnMana.addEventListener('click', () => {
   showTimeline(timelineMana, btnMana, btnTarde);
-  initTimeline(timelineMana);
 });
 btnTarde.addEventListener('click', () => {
   showTimeline(timelineTarde, btnTarde, btnMana);
-  initTimeline(timelineTarde);
 });
 
-// Mostrar mañana por defecto
+// Mostrar mañana por defecto al cargar
 window.addEventListener('load', () => {
   showTimeline(timelineMana, btnMana, btnTarde);
-  initTimeline(timelineMana);
 });
 </script>
 
