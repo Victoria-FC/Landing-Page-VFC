@@ -18,7 +18,7 @@ header {
   /* background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat; */
   background: url('images/portada.jpeg') center/cover no-repeat;
   color:white; text-align:center; padding:140px 20px;
-  box-shadow: inset 0 0 80px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.6);
 }
 header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.55); z-index:0; }
 .hero-content { position:relative; z-index:1; max-width:1000px; margin:0 auto; }
@@ -224,32 +224,54 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   
 /* ---------------------- RESPONSIVE ---------------------- */
 @media(max-width:768px){
-  header h1 { font-size:2.6em; }
-  .hero-card { width:150px; padding:25px 20px; }
-  .registro-button { font-size:1.2em; padding:18px 35px; }
+  /* Header ajustado para móviles medianos */
+  header {
+    background-position: center top; /* enfoca la parte superior de la imagen */
+    padding: 100px 15px;            /* altura reducida */
+  }
+  header h1 { font-size: 2.6em; }
+
+  /* Hero cards más compactas */
+  .hero-card { width: 150px; padding: 25px 20px; }
+
+  /* Botón de registro más pequeño */
+  .registro-button { font-size: 1.2em; padding: 18px 35px; }
 }
+
 @media(max-width:600px){
   /* Programa compacto en móviles */
   .timeline-list { padding-left:0; }
   .timeline-list::before { display:none; }
   .timeline-event {
-    flex-direction:column;
-    align-items:flex-start;
-    gap:6px;
-    border-left:none;
-    border-top:4px solid #900;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    border-left: none;
+    border-top: 4px solid #900;
     transform: translateY(20px);
   }
   .timeline-event.visible { transform: translateY(0); }
-  .timeline-event.charla { border-top:4px solid #c44; }
-  .timeline-event.pausa { border-top:4px dashed #aaa; }
+  .timeline-event.charla { border-top: 4px solid #c44; }
+  .timeline-event.pausa { border-top: 4px dashed #aaa; }
   .timeline-event::before { display:none; }
-  .timeline-buttons button { padding:10px 22px; }
+
+  /* Botones timeline más pequeños */
+  .timeline-buttons button { padding: 10px 22px; }
 }
+
 @media(max-width:480px){
-  header h1 { font-size:2em; }
-  .hero-card { width:130px; padding:18px 15px; }
-  .registro-button { font-size:1.1em; padding:15px 30px; }
+  /* Header aún más compacto en móviles pequeños */
+  header {
+    padding: 70px 10px;
+    background-position: center top;
+  }
+  header h1 { font-size: 2em; }
+
+  /* Hero cards más reducidas */
+  .hero-card { width: 130px; padding: 18px 15px; }
+
+  /* Botón registro más pequeño */
+  .registro-button { font-size: 1.1em; padding: 15px 30px; }
 }
 </style>
 </head>
