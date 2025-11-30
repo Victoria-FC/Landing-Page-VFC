@@ -65,97 +65,109 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
 .objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; }
 
-/* ---------------------- PROGRAMA ---------------------- */
+/* ---------------------- PROGRAMA (CORREGIDO) ---------------------- */
 .timeline-buttons {
-  text-align: center;
-  margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 .timeline-buttons button {
-  background: #fff;
-  border: 2px solid #900;
-  color: #900;
-  padding: 12px 28px;
-  border-radius: 30px;
-  margin: 0 10px;
-  font-weight: 600;
-  transition: 0.3s;
-  cursor: pointer;
+  background: #fff;
+  border: 2px solid #900;
+  color: #900;
+  padding: 12px 28px;
+  border-radius: 30px;
+  margin: 0 10px;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
 }
 .timeline-buttons button:hover {
-  background: #f5f5f5;
+  background: #f5f5f5;
 }
 .timeline-buttons button.active {
-  background: #900;
-  color: #fff;
-  border-color: #900;
+  background: #900;
+  color: #fff;
+  border-color: #900;
 }
 
 .timeline-list {
-  position: relative;
-  margin: 30px 0;
-  padding-left: 140px; /* espacio para la columna de bullets */
+  position: relative;
+  margin: 30px 0;
+  padding-left: 90px; /* Reducido para acercar las cajas a la línea */
 }
+/* LÍNEA VERTICAL (AJUSTADA) */
 .timeline-list::before {
-  content: '';
-  position: absolute;
-  left: 40px;   /* línea vertical fija en el margen izquierdo */
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #900;
+  content: '';
+  position: absolute;
+  left: 36px;    /* Inicia la línea aquí */
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #900;
 }
 
 .timeline-event {
-  position: relative;
-  margin-bottom: 25px;
-  padding: 14px 22px;
-  border-radius: 12px;
-  background: #fff;
-  color: #333;
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  margin-bottom: 25px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  background: #fff; /* Fondo blanco para las cajas */
+  color: #333;
+  opacity: 0;
+  transform: translateX(30px); /* Cambiado de nuevo para una animación más sutil */
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  display: flex;
+  align-items: center; /* Alinea los iconos verticalmente */
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave */
 }
 .timeline-event.visible {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
+/* PUNTO DE EVENTO (CORREGIDO Y CENTRADO) */
 .timeline-event::before {
-  content: '';
-  position: absolute;
-  left: 32px;   /* círculo centrado sobre la línea (40px - mitad del ancho) */
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  border: 3px solid #fff;
+  content: '';
+  position: absolute;
+  left: 30px;    /* Centra el círculo de 16px (36-8=28, ajustado a 30) */
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(0.5); /* Añadida animación inicial */
+  border: 3px solid #fff;
+  opacity: 0;
+  z-index: 10;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
-.timeline-event.charla::before { background: #c44; }
-.timeline-event.pausa::before { background: #aaa; }
+.timeline-event.visible::before { transform: translateY(-50%) scale(1); opacity:1; }
+
+
+/* Estilos por tipo de evento - Coincidiendo con la imagen (Rojo para charla, Gris para pausa) */
+.timeline-event.charla::before { background: #c44; } /* Rojo */
+.timeline-event.pausa::before { background: #aaa; } /* Gris */
 
 .timeline-event.charla {
-  background: linear-gradient(135deg, #ffe5e5, #fff);
-  border-left: 5px solid #c44;
+  background: linear-gradient(135deg, #ffe5e5, #fff); /* Fondo degradado tenue */
+  border-left: 5px solid #c44; /* Borde izquierdo rojo */
 }
 .timeline-event.pausa {
-  background: linear-gradient(135deg, #e5e5e5, #fff);
-  border-left: 5px dashed #aaa;
+  background: linear-gradient(135deg, #e5e5e5, #fff); /* Fondo degradado tenue */
+  border-left: 5px dashed #aaa; /* Borde izquierdo gris a rayas */
 }
 
 .timeline-event .time {
-  font-weight: 600;
-  color: #900;
-  margin-right: 8px;
+  font-weight: 600;
+  color: #900;
+  margin-right: 8px;
+  min-width: 90px; /* Asegura que la hora tenga un espacio definido */
 }
 .timeline-event img {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  /* Filtro para colorear los iconos (opcional, si los iconos son oscuros) */
+  filter: invert(20%) sepia(90%) saturate(7000%) hue-rotate(330deg) brightness(90%) contrast(100%);
 }
 
 /* ---------------------- PARTNERS ---------------------- */
@@ -268,67 +280,66 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   </div>
 </section>
 
-<!-- PROGRAMA / TIMELINE -->
 <section id="programa" class="section">
-  <h2>Programa</h2>
-  <p>Ao longo da xornada formativa, diferentes especialistas impartirán charlas e sesións para mellorar o benestar integral.</p>
-  <p>Selecciona mañá ou tarde para ver a programación correspondente.</p>
+  <h2>Programa</h2>
+  <p>Ao longo da xornada formativa, diferentes especialistas impartirán charlas e sesións para mellorar o benestar integral.</p>
+  <p>Selecciona mañá ou tarde para ver a programación correspondente.</p>
 
-  <div class="timeline-buttons">
-    <button id="btn-mana">Mañá</button>
-    <button id="btn-tarde">Tarde</button>
-  </div>
+  <div class="timeline-buttons">
+    <button id="btn-mana">Mañá</button>
+    <button id="btn-tarde">Tarde</button>
+  </div>
 
-  <div id="timeline-mana" class="timeline-list">
-    <div class="timeline-event charla">
-      <span class="time">9:00 - 10:00</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/mic.svg" alt="Charla">
-      Charla: Nutrición Deportiva
-    </div>
-    <div class="timeline-event pausa">
-      <span class="time">10:00 - 10:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/coffee.svg" alt="Pausa">
-      Pausa Café
-    </div>
-    <div class="timeline-event charla">
-      <span class="time">10:30 - 11:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Mesa Redonda">
-      Mesa Redonda: Estrés e Rendemento
-    </div>
-    <div class="timeline-event pausa">
-      <span class="time">11:30 - 12:00</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/pause.svg" alt="Descanso">
-      Descanso
-    </div>
-    <div class="timeline-event charla">
-      <span class="time">12:00 - 13:00</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="Taller">
-      Taller: Preparación Mental
-    </div>
-  </div>
+  <div id="timeline-mana" class="timeline-list">
+    <div class="timeline-event charla">
+      <span class="time">9:00 - 10:00</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/mic.svg" alt="Charla">
+      Charla: Nutrición Deportiva
+    </div>
+    <div class="timeline-event pausa">
+      <span class="time">10:00 - 10:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/coffee.svg" alt="Pausa">
+      Pausa Café
+    </div>
+    <div class="timeline-event charla">
+      <span class="time">10:30 - 11:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Mesa Redonda">
+      Mesa Redonda: Estrés e Rendemento
+    </div>
+    <div class="timeline-event pausa">
+      <span class="time">11:30 - 12:00</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/pause.svg" alt="Descanso">
+      Descanso
+    </div>
+    <div class="timeline-event charla">
+      <span class="time">12:00 - 13:00</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="Taller">
+      Taller: Preparación Mental
+    </div>
+  </div>
 
-  <div id="timeline-tarde" class="timeline-list" style="display:none;">
-    <div class="timeline-event charla">
-      <span class="time">15:00 - 16:00</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/activity.svg" alt="Taller">
-      Taller: Rehabilitación Física
-    </div>
-    <div class="timeline-event pausa">
-      <span class="time">16:00 - 16:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/coffee.svg" alt="Pausa">
-      Pausa Café
-    </div>
-    <div class="timeline-event charla">
-      <span class="time">16:30 - 17:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/refresh-cw.svg" alt="Charla">
-      Charla: Recuperación Post-Competición
-    </div>
-    <div class="timeline-event charla">
-      <span class="time">17:30 - 18:30</span>
-      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Mesa Redonda">
-      Mesa Redonda Final
-    </div>
-  </div>
+  <div id="timeline-tarde" class="timeline-list" style="display:none;">
+    <div class="timeline-event charla">
+      <span class="time">15:00 - 16:00</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/activity.svg" alt="Taller">
+      Taller: Rehabilitación Física
+    </div>
+    <div class="timeline-event pausa">
+      <span class="time">16:00 - 16:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/coffee.svg" alt="Pausa">
+      Pausa Café
+    </div>
+    <div class="timeline-event charla">
+      <span class="time">16:30 - 17:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/refresh-cw.svg" alt="Charla">
+      Charla: Recuperación Post-Competición
+    </div>
+    <div class="timeline-event charla">
+      <span class="time">17:30 - 18:30</span>
+      <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Mesa Redonda">
+      Mesa Redonda Final
+    </div>
+  </div>
 </section>
 
 <!-- REGISTRO -->
