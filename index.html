@@ -20,11 +20,11 @@ a { text-decoration:none; }
 /* ---------------------- HEADER HERO ---------------------- */
 header {
   position:relative;
-  background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60')
-  center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
   color:white;
   text-align:center;
   padding:140px 20px;
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.5);
 }
 header::after {
   content:"";
@@ -34,8 +34,8 @@ header::after {
   z-index:0;
 }
 .hero-content { position:relative; z-index:1; max-width:1000px; margin:0 auto; }
-header h1 { font-size:3.2em; font-weight:700; color:white; }
-header p { font-size:1.2em; margin-top:10px; opacity:0.95; }
+header h1 { font-size:3.4em; font-weight:700; color:white; text-shadow:0 2px 8px rgba(0,0,0,0.6);}
+header p { font-size:1.3em; margin-top:10px; opacity:0.95; text-shadow:0 1px 5px rgba(0,0,0,0.5); }
 
 /* ---------------------- NAV ---------------------- */
 nav {
@@ -56,61 +56,63 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   margin:40px 0;
 }
 .hero-card {
-  background:rgba(255,255,255,0.1);
-  backdrop-filter:blur(8px);
-  border-radius:15px;
-  padding:25px 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border-radius:18px;
+  padding:28px 22px;
   width:180px;
   text-align:center;
-  box-shadow:0 4px 20px rgba(0,0,0,0.3);
-  opacity:0; transform:translateY(30px); transition:0.6s ease;
-  display:flex; flex-direction: column; align-items: center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  opacity:0; transform:translateY(30px); transition:0.6s ease, box-shadow 0.3s ease;
 }
 .hero-card.visible { opacity:1; transform:translateY(0); }
-.hero-card img { width:50px; height:50px; margin-bottom:10px; filter:invert(1); }
-.hero-card span { font-weight:500; display:block; text-align:center; margin-top:5px; }
+.hero-card img { width:50px; height:50px; margin-bottom:12px; filter:invert(1); }
+.hero-card span { font-weight:600; display:block; font-size:1em; }
 
 .hero-card:hover {
-  transform:translateY(-5px) scale(1.05);
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transform:translateY(-5px) scale(1.07);
+  box-shadow:0 12px 28px rgba(0,0,0,0.45);
 }
 
 /* ---------------------- BOTÓN REGISTRO ---------------------- */
 .registro-button {
   display:inline-block;
-  margin-top:20px;
+  margin-top:25px;
   background:#900;
   color:#fff;
-  padding:18px 40px;
-  border-radius:30px;
+  padding:20px 45px;
+  border-radius:35px;
   font-weight:bold;
-  font-size:1.3em;
-  transition:0.3s;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+  font-size:1.35em;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 -3px 0 rgba(0,0,0,0.2);
 }
 .registro-button:hover {
   background:#000;
-  box-shadow:0 0 20px #ff0000;
-  transform:scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4), inset 0 -3px 0 rgba(255,0,0,0.5);
+  transform:scale(1.08);
 }
 
-/* ---------------------- SECCIONES ---------------------- */
+/* ---------------------- SECCIONES GLASSMORPHISM ---------------------- */
 .container { max-width:1000px; margin:50px auto; padding:0 20px; }
 .section {
-  background:white;
+  background: linear-gradient(145deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
   color:#333;
-  padding:40px 30px;
-  border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
-  margin-bottom:40px;
+  padding:45px 35px;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+  margin-bottom:45px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(200,200,200,0.3);
   opacity:0; transform:translateY(30px); transition:0.8s ease-out;
 }
 .section.visible { opacity:1; transform:translateY(0); }
 .section h2 {
   color:#900;
-  font-size:1.8em;
-  margin-bottom:20px;
+  font-size:1.85em;
+  margin-bottom:22px;
   position:relative;
+  font-weight:700;
 }
 .section h2::after {
   content:"";
@@ -121,11 +123,12 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   margin-top:6px;
   border-radius:1px;
 }
+.section p, .section ul li { margin-bottom:14px; font-size:1.05em; }
 
 /* ---------------------- PARTNERS ---------------------- */
 .partners {
   display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
-  padding:40px 0;
+  padding:45px 0;
 }
 .partners img {
   height:60px;
@@ -138,7 +141,7 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 footer {
   background:#000;
   color:white;
-  padding:40px 20px;
+  padding:45px 20px;
   border-top:2px solid #ff0000;
   margin-top:30px;
 }
@@ -146,29 +149,28 @@ footer {
   display:flex; justify-content:space-between; flex-wrap:wrap;
   max-width:1000px; margin:0 auto; gap:20px;
 }
-/* Logos footer */
 .footer-left img {
-  height:120px; /* misma altura para ambos logos */
+  height:120px;
   border:2px solid #fff;
-  border-radius:8px;
-  padding:5px;
+  box-shadow:0 0 10px rgba(255,255,255,0.7);
   margin-right:20px;
-  box-shadow:0 0 10px rgba(0,0,0,0.5);
-  transition:transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.footer-left img:hover { transform: scale(1.05); }
+.footer-left img:hover {
+  transform: scale(1.05);
+  box-shadow:0 0 15px rgba(255,255,255,0.9);
+}
 
-.footer-right p { margin-bottom:8px; }
-.footer-right a { color:#fff; }
+.footer-right p { margin-bottom:10px; }
+.footer-right a { color:#fff; transition:0.3s; }
 .footer-right a:hover { color:#ff0000; }
 
-/* Iconos redes sociales blancos */
 .social-icons img {
-  width:30px; margin-right:10px;
+  width:32px; margin-right:12px;
   filter:invert(1);
-  transition:0.3s;
+  transition: transform 0.3s ease;
 }
-.social-icons img:hover { transform:scale(1.15); }
+.social-icons img:hover { transform:scale(1.2); }
 
 /* ---------------------- BOTÓN VOLVER ARRIBA ---------------------- */
 #topBtn {
@@ -177,11 +179,11 @@ footer {
   bottom:25px;
   background:#900;
   color:white;
-  padding:12px 16px;
+  padding:14px 18px;
   border-radius:50%;
-  font-size:22px;
+  font-size:24px;
   cursor:pointer;
-  box-shadow:0 0 15px rgba(0,0,0,0.4);
+  box-shadow:0 0 18px rgba(0,0,0,0.5);
   display:none;
   transition:0.3s;
   z-index:999;
@@ -190,21 +192,21 @@ footer {
 
 /* ---------------------- RESPONSIVE ---------------------- */
 @media(max-width:768px){
-  header h1 { font-size:2.4em; }
-  .hero-card { width:140px; }
+  header h1 { font-size:2.6em; }
+  .hero-card { width:150px; padding:25px 20px; }
+  .registro-button { font-size:1.2em; padding:18px 35px; }
 }
 @media(max-width:480px){
-  header h1 { font-size:1.8em; }
-  .hero-card { width:120px; }
-  .footer-left { flex-direction: column; align-items: center; }
-  .footer-left img { margin-right:0; }
+  header h1 { font-size:2em; }
+  .hero-card { width:130px; padding:18px 15px; }
+  .registro-button { font-size:1.1em; padding:15px 30px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- ---------------------- HEADER ---------------------- -->
 <header>
   <div class="hero-content">
     <h1>I Xornadas: Saúde Mental e Física</h1>
@@ -229,7 +231,7 @@ footer {
   </div>
 </header>
 
-<!-- NAV -->
+<!-- ---------------------- NAV ---------------------- -->
 <nav>
   <a href="#presentacion">Presentación</a>
   <a href="#obxectivos">Obxectivos</a>
@@ -237,8 +239,9 @@ footer {
   <a href="#registro">Rexistro</a>
 </nav>
 
-<!-- CONTENIDO -->
+<!-- ---------------------- CONTENIDO ---------------------- -->
 <div class="container">
+
   <section id="presentacion" class="section">
     <h2>Presentación</h2>
     <p>As Xornadas buscan crear un espazo de reflexión e aprendizaxe sobre a importancia da saúde mental e física na vida diaria.</p>
@@ -263,22 +266,25 @@ footer {
     <p>Podes inscribirte no seguinte enlace:</p>
     <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme ás Xornadas</a>
   </section>
+
 </div>
 
-<!-- ENTIDADES COLABORADORAS -->
+<!-- ---------------------- ENTIDADES COLABORADORAS ---------------------- -->
 <div class="partners">
   <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
   <img src="images/xunta.png" alt="Xunta de Galicia">
   <img src="images/logo usc.png" alt="USC">
 </div>
 
-<!-- FOOTER -->
+<!-- ---------------------- FOOTER ---------------------- -->
 <footer>
   <div class="footer-container">
+
     <div class="footer-left">
       <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club">
       <img class="logo-aniversario" src="images/10aniversario.png" alt="10º Aniversario">
     </div>
+
     <div class="footer-right">
       <div class="contact-info">
         <p>Dirección: Rúa Exemplo, 123, Santiago de Compostela</p>
@@ -291,13 +297,14 @@ footer {
         <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png"></a>
       </div>
     </div>
+
   </div>
 </footer>
 
-<!-- BOTÓN VOLVER ARRIBA -->
+<!-- ---------------------- BOTÓN VOLVER ARRIBA ---------------------- -->
 <div id="topBtn">↑</div>
 
-<!-- JS -->
+<!-- ---------------------- JS ANIMACIONES + BOTÓN TOP ---------------------- -->
 <script>
 const sections = document.querySelectorAll('.section');
 const heroCards = document.querySelectorAll('.hero-card');
@@ -311,6 +318,7 @@ function checkVisible() {
 
 window.addEventListener('scroll', () => {
   checkVisible();
+
   if (window.scrollY > 400) topBtn.style.display = "block";
   else topBtn.style.display = "none";
 });
