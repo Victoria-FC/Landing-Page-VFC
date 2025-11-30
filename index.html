@@ -17,7 +17,7 @@ body {
 }
 a { text-decoration:none; }
 
-/* ---------------------- HEADER HERO ---------------------- */
+/* ---------------------- HEADER ---------------------- */
 header {
   position:relative;
   background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
@@ -125,7 +125,7 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 }
 .section p, .section ul li { margin-bottom:14px; font-size:1.05em; }
 
-/* ---------------------- PONENTES ---------------------- */
+/* ---------------------- PONENTES PREMIUM ---------------------- */
 .ponentes-grid {
   display:grid;
   grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
@@ -135,9 +135,12 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .ponente-card {
   text-align:center;
   cursor:pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity:0; transform:translateY(30px);
 }
-.ponente-card:hover { transform:scale(1.05); }
+.ponente-card.visible { opacity:1; transform:translateY(0); }
+.ponente-card:hover { transform:scale(1.07); box-shadow:0 10px 25px rgba(0,0,0,0.35); }
+
 .ponente-photo {
   width:130px; height:130px;
   border-radius:50%;
@@ -145,11 +148,22 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   overflow:hidden;
   margin:0 auto 12px;
   display:flex; align-items:center; justify-content:center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .ponente-photo img { width:100%; height:100%; object-fit:cover; }
-.ponente-card h3 { font-size:1.1em; font-weight:700; margin-bottom:4px; }
+.ponente-card .nombre { font-size:1.1em; font-weight:700; margin-bottom:4px; }
 .ponente-card .cargo { font-size:0.95em; color:#555; margin-bottom:6px; }
-.ponente-card .descripcion { display:none; font-size:0.95em; color:#333; }
+.ponente-card .descripcion {
+  display:none;
+  font-size:0.95em;
+  color:#333;
+  transition: max-height 0.5s ease;
+  overflow:hidden;
+}
+
+/* Pendientes de revelar */
+.ponente-card.pendiente .ponente-photo { filter:brightness(1.2) contrast(1.2) invert(0.2); }
+.ponente-card.pendiente .nombre, .ponente-card.pendiente .cargo { color:#999; }
 
 /* ---------------------- PARTNERS ---------------------- */
 .partners {
@@ -226,7 +240,6 @@ footer {
 }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
@@ -236,18 +249,9 @@ footer {
     <p>Un espazo para compartir coñecementos e experiencias sobre saúde integral.</p>
 
     <div class="hero-cards">
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg">
-        <span>Santiago de Compostela</span>
-      </div>
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg">
-        <span>28 de febreiro de 2026</span>
-      </div>
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg">
-        <span>9:00h - 21:00h</span>
-      </div>
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg"><span>Santiago de Compostela</span></div>
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg"><span>28 de febreiro de 2026</span></div>
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg"><span>9:00h - 21:00h</span></div>
     </div>
 
     <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
@@ -286,23 +290,20 @@ footer {
 
       <!-- Ponente revelado -->
       <div class="ponente-card" onclick="toggleDescription(this)">
-        <div class="ponente-photo">
-          <img src="images/ines_miras.jpeg" alt="Inés Mirás">
-        </div>
-        <h3>Irene Mirás</h3>
-        <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
-        <p class="descripcion">Foi deportista de alto nivel en piragüismo, onde comezou a súa vocación pola nutrición e, principalmente, na nutrición deportiva. Actualmente traballa con deportista de alto nivel e amataeur de diferentes disciplcinas. Tamén e antropometrista ISAK II e conta cun máster en Suplementación Deportiva.</p>
+        <div class="ponente-photo"><img src="images/ponente1.jpg" alt="Dr. Ana López"></div>
+        <h3 class="nombre">Dr. Ana López</h3>
+        <p class="cargo">Psicóloga clínica</p>
+        <p class="descripcion">Especializada en salud mental y terapia cognitivo-conductual. Ha trabajado con adolescentes y adultos en programas de prevención de estrés.</p>
       </div>
 
       <!-- Ponentes pendientes -->
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card pendiente"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3 class="nombre">Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card pendiente"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3 class="nombre">Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card pendiente"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3 class="nombre">Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card pendiente"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3 class="nombre">Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card pendiente"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3 class="nombre">Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card pendiente"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3 class="nombre">Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+      <div class="ponente-card pendiente"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3 class="nombre">Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
 
     </div>
   </section>
@@ -315,7 +316,7 @@ footer {
 
 </div>
 
-<!-- ENTIDADES COLABORADORAS -->
+<!-- PARTNERS -->
 <div class="partners">
   <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
   <img src="images/xunta.png" alt="Xunta de Galicia">
@@ -333,8 +334,8 @@ footer {
 
     <div class="footer-right">
       <div class="contact-info">
-        <p>Estadio de San Lázaro Porta 11, 15707, Santiago de Compostela</p>
-        <p><a href="mailto:victoriafemenino@gmail.com">victoriafemenino@gmail.com</a></p>
+        <p>Dirección: Estadio de San Lázaro Porta 11, 15707, Santiago de Compostela</p>
+        <p>Email: <a href="mailto:victoriafemenino@gmail.com">victoriafemenino@gmail.com</a></p>
       </div>
       <div class="social-icons">
         <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png"></a>
@@ -349,17 +350,18 @@ footer {
 <!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn">↑</div>
 
-<!-- ---------------------- JS ---------------------- -->
 <script>
+// Animación scroll
 const sections = document.querySelectorAll('.section');
 const heroCards = document.querySelectorAll('.hero-card');
+const ponentes = document.querySelectorAll('.ponente-card');
 const topBtn = document.getElementById("topBtn");
 
-// Animación scroll
 function checkVisible() {
   const scrollY = window.pageYOffset + window.innerHeight * 0.8;
   sections.forEach(s => { if(scrollY > s.offsetTop) s.classList.add('visible'); });
   heroCards.forEach(c => { if(scrollY > c.offsetTop) c.classList.add('visible'); });
+  ponentes.forEach(p => { if(scrollY > p.offsetTop) p.classList.add('visible'); });
 }
 
 // Toggle descripción del ponente
@@ -368,14 +370,14 @@ function toggleDescription(card) {
   if(desc) desc.style.display = (desc.style.display === 'block') ? 'none' : 'block';
 }
 
+window.addEventListener('scroll', checkVisible);
+window.addEventListener('load', checkVisible);
+
+topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
 window.addEventListener('scroll', () => {
-  checkVisible();
   if (window.scrollY > 400) topBtn.style.display = "block";
   else topBtn.style.display = "none";
 });
-
-topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
-window.addEventListener('load', checkVisible);
 </script>
 
 </body>
