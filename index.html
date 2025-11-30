@@ -9,12 +9,7 @@
 <style>
 /* ---------------------- RESET ---------------------- */
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family:'Poppins',sans-serif;
-  background:#f5f5f5;
-  color:#333;
-  line-height:1.6;
-}
+body { font-family:'Poppins',sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
 a { text-decoration:none; }
 
 /* ---------------------- HEADER HERO ---------------------- */
@@ -44,10 +39,7 @@ nav {
   position:sticky; top:0; z-index:20;
   border-bottom:3px solid #ff0000;
 }
-nav a {
-  color:#fff; margin:5px 20px; padding:12px 0;
-  font-weight:600; transition:0.3s;
-}
+nav a { color:#fff; margin:5px 20px; padding:12px 0; font-weight:600; transition:0.3s; }
 nav a:hover { color:#ff0000; transform:translateY(-3px); }
 
 /* ---------------------- HERO CARDS ---------------------- */
@@ -68,11 +60,7 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .hero-card.visible { opacity:1; transform:translateY(0); }
 .hero-card img { width:50px; height:50px; margin-bottom:12px; filter:invert(1); }
 .hero-card span { font-weight:600; display:block; font-size:1em; }
-
-.hero-card:hover {
-  transform:translateY(-5px) scale(1.07);
-  box-shadow:0 12px 28px rgba(0,0,0,0.45);
-}
+.hero-card:hover { transform:translateY(-5px) scale(1.07); box-shadow:0 12px 28px rgba(0,0,0,0.45); }
 
 /* ---------------------- BOTÓN REGISTRO ---------------------- */
 .registro-button {
@@ -126,167 +114,57 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .section p, .section ul li { margin-bottom:14px; font-size:1.05em; }
 
 /* ---------------------- OBJETIVOS ---------------------- */
-.objetivos-list {
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-.objetivos-list li {
-  display:flex;
-  align-items:flex-start;
-  margin-bottom:18px;
-  font-size:1.05em;
-}
-.objetivos-list li .icon {
-  width:28px;
-  height:28px;
-  margin-right:12px;
-  flex-shrink:0;
-  filter: invert(0.25) sepia(1) saturate(5) hue-rotate(-10deg);
-}
+.objetivos-list { list-style:none; padding:0; margin:0; }
+.objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
+.objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; filter: invert(0.25) sepia(1) saturate(5) hue-rotate(-10deg); }
 
 /* ---------------------- PONENTES ---------------------- */
-.ponentes-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-  gap:25px;
-  justify-items:center;
-}
-.ponente-card {
-  text-align:center;
-  cursor:pointer;
-  transition: transform 0.3s ease;
-}
+.ponentes-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:25px; justify-items:center; }
+.ponente-card { text-align:center; cursor:pointer; transition: transform 0.3s ease; }
 .ponente-card:hover { transform:scale(1.05); }
-.ponente-photo {
-  width:130px; height:130px;
-  border-radius:50%;
-  border:3px solid #ff0000;
-  overflow:hidden;
-  margin:0 auto 12px;
-  display:flex; align-items:center; justify-content:center;
-}
+.ponente-photo { width:130px; height:130px; border-radius:50%; border:3px solid #ff0000; overflow:hidden; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; }
 .ponente-photo img { width:100%; height:100%; object-fit:cover; }
 .ponente-card h3 { font-size:1.1em; font-weight:700; margin-bottom:4px; }
 .ponente-card .cargo { font-size:0.95em; color:#555; margin-bottom:6px; }
 .ponente-card .descripcion { display:none; font-size:0.95em; color:#333; }
 
-/* ---------------------- PARTNERS ---------------------- */
-.partners {
-  display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
-  padding:45px 0;
+/* ---------------------- TIMELINE VERTICAL ---------------------- */
+.timeline-buttons { text-align:center; margin-bottom:30px; }
+.timeline-buttons button {
+  background:#900; color:white; border:none; padding:10px 25px; border-radius:25px; margin:0 10px; cursor:pointer; font-weight:600; transition:0.3s;
 }
-.partners img {
-  height:60px;
-  filter:brightness(1.1);
-  transition:0.3s;
-}
-.partners img:hover { transform:scale(1.1); }
+.timeline-buttons button:hover { background:#ff0000; }
 
-/* ---------------------- FOOTER ---------------------- */
-footer {
-  background:#000;
-  color:white;
-  padding:45px 20px;
-  border-top:2px solid #ff0000;
-  margin-top:30px;
+.timeline-vertical { position: relative; margin: 40px 0; padding-left: 50px; padding-right: 50px; }
+.timeline-vertical::before {
+  content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 4px; height: 100%; background: #900;
 }
-.footer-container {
-  display:flex; justify-content:space-between; flex-wrap:wrap;
-  max-width:1000px; margin:0 auto; gap:20px;
+.timeline-item { position: relative; width: 50%; padding: 20px 30px; box-sizing: border-box; }
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+.timeline-item .content {
+  background: #fff; padding: 15px 20px; border-radius: 12px; display: inline-block; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: relative;
 }
-.footer-left img {
-  height:120px;
-  border:none;
-  margin-right:20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.footer-left img:hover {
-  transform: scale(1.05);
-  box-shadow:0 0 15px rgba(255,255,255,0.9);
-}
-.footer-right p { margin-bottom:10px; }
-.footer-right a { color:#fff; transition:0.3s; }
-.footer-right a:hover { color:#ff0000; }
-.social-icons img {
-  width:32px; margin-right:12px;
-  filter:invert(1);
-  transition: transform 0.3s ease;
-}
-.social-icons img:hover { transform:scale(1.2); }
-
-/* ---------------------- BOTÓN VOLVER ARRIBA ---------------------- */
-#topBtn {
-  position:fixed;
-  right:25px;
-  bottom:25px;
-  background:#900;
-  color:white;
-  padding:14px 18px;
-  border-radius:50%;
-  font-size:24px;
-  cursor:pointer;
-  box-shadow:0 0 18px rgba(0,0,0,0.5);
-  display:none;
-  transition:0.3s;
-  z-index:999;
-}
-#topBtn:hover { background:#ff0000; }
+.timeline-item.left .content::after { content: ''; position: absolute; top: 20px; right: -12px; width: 12px; height: 12px; background: #900; border-radius: 50%; }
+.timeline-item.right .content::after { content: ''; position: absolute; top: 20px; left: -12px; width: 12px; height: 12px; background: #900; border-radius: 50%; }
+.fade-in { animation: fadeIn 0.6s ease forwards; }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
 /* ---------------------- RESPONSIVE ---------------------- */
 @media(max-width:768px){
   header h1 { font-size:2.6em; }
   .hero-card { width:150px; padding:25px 20px; }
   .registro-button { font-size:1.2em; padding:18px 35px; }
+  .timeline-item { width:100%; text-align:left !important; padding-left:0; padding-right:0; margin-bottom:20px; }
+  .timeline-item.left .content::after, .timeline-item.right .content::after { left: -12px; right:auto; top:10px; }
 }
 @media(max-width:480px){
   header h1 { font-size:2em; }
   .hero-card { width:130px; padding:18px 15px; }
   .registro-button { font-size:1.1em; padding:15px 30px; }
 }
-
-/* ---------------------- TIMELINE ---------------------- */
-.timeline-buttons {
-  text-align:center;
-  margin-bottom:30px;
-}
-.timeline-buttons button {
-  background:#900;
-  color:white;
-  border:none;
-  padding:10px 25px;
-  border-radius:25px;
-  margin:0 10px;
-  cursor:pointer;
-  font-weight:600;
-  transition:0.3s;
-}
-.timeline-buttons button:hover { background:#ff0000; }
-
-.timeline.fade-in {
-  display:block !important;
-  animation: fadeIn 0.6s ease forwards;
-}
-@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-
-.timeline .timeline-item {
-  display:flex;
-  width:100%;
-  margin:15px 0;
-}
-.timeline-item.left { justify-content:flex-start; }
-.timeline-item.right { justify-content:flex-end; }
-.timeline-item .time {
-  background:#900; color:white; padding:5px 12px; border-radius:12px;
-  font-weight:600; margin:0 10px;
-}
-.timeline-item .event {
-  background:#fff; padding:10px 15px; border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1); max-width:250px;
-}
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
@@ -294,22 +172,11 @@ footer {
   <div class="hero-content">
     <h1>I Xornadas: Claves para unha boa saúde mental e física</h1>
     <p>Un espazo para compartir coñecementos e experiencias sobre saúde integral.</p>
-
     <div class="hero-cards">
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg">
-        <span>Santiago de Compostela</span>
-      </div>
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg">
-        <span>28 de febreiro de 2026</span>
-      </div>
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg">
-        <span>9:00h - 21:00h</span>
-      </div>
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg"><span>Santiago de Compostela</span></div>
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg"><span>28 de febreiro de 2026</span></div>
+      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg"><span>9:00h - 21:00h</span></div>
     </div>
-
     <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
   </div>
 </header>
@@ -323,7 +190,6 @@ footer {
   <a href="#registro">Rexistro</a>
 </nav>
 
-<!-- CONTENIDO -->
 <div class="container">
 
   <section id="presentacion" class="section">
@@ -342,49 +208,49 @@ footer {
     </ul>
   </section>
 
-  <!-- PONENTES -->
   <section id="ponentes" class="section">
     <h2>Poñentes</h2>
     <div class="ponentes-grid">
+      <!-- Ponente confirmado -->
       <div class="ponente-card" onclick="toggleDescription(this)">
-        <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Inés Mirás"></div>
+        <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás"></div>
         <h3>Irene Mirás</h3>
-        <p class="cargo">Dietista - nutricionista deportiva</p>
-        <p class="descripcion">Foi deportista de alto nivel en piragüismo...</p>
+        <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
+        <p class="descripcion">Foi deportista de alto nivel en piragüismo, onde comezou a súa vocación pola nutrición e, principalmente, na nutrición deportiva. Actualmente traballa con deportista de alto nivel e amateures de diferentes disciplinas. Tamén é antropometrista ISAK II e conta cun máster en Suplementación Deportiva.</p>
       </div>
-      <!-- Ponentes pendientes -->
+      <!-- Pendientes de revelar -->
+      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     </div>
   </section>
 
-  <!-- ---------------------- PROGRAMA ---------------------- -->
+  <!-- PROGRAMA -->
   <section id="programa" class="section">
     <h2>Programa</h2>
     <p>Ao longo da xornada trataremos diferentes temas relacionados coa saúde física, nutrición deportiva, mindfulness, hábitos saudables e estratexias de recuperación. Selecciona a franja horaria para ver o detalle das actividades:</p>
-
     <div class="timeline-buttons">
       <button onclick="showTimeline('mana')">Mañá</button>
       <button onclick="showTimeline('tarde')">Tarde</button>
     </div>
 
-    <!-- Timeline Mañá -->
-    <div id="timeline-mana" class="timeline" style="display:none; opacity:0;">
-      <div class="timeline-item left"><div class="time">9:00 - 9:30</div><div class="event">Recepción e acreditación</div></div>
-      <div class="timeline-item right"><div class="time">9:30 - 10:30</div><div class="event">Charla: Nutrición deportiva</div></div>
-      <div class="timeline-item left"><div class="time">10:30 - 11:00</div><div class="event">Pausa café</div></div>
-      <div class="timeline-item right"><div class="time">11:00 - 12:30</div><div class="event">Charla: Saúde mental e rendemento</div></div>
-      <div class="timeline-item left"><div class="time">12:30 - 13:00</div><div class="event">Descanso e networking</div></div>
-      <div class="timeline-item right"><div class="time">13:00 - 14:00</div><div class="event">Taller práctico: Hábitos saudables</div></div>
-    </div>
+    <div class="timeline-container">
+      <div id="timeline-mana" class="timeline-vertical" style="display:none; opacity:0;">
+        <div class="timeline-item left"><div class="content"><h4>9:00 - 9:30</h4><p>Recepción e acreditación</p></div></div>
+        <div class="timeline-item right"><div class="content"><h4>9:30 - 10:30</h4><p>Charla: Nutrición deportiva</p></div></div>
+        <div class="timeline-item left"><div class="content"><h4>10:30 - 11:00</h4><p>Pausa café</p></div></div>
+        <div class="timeline-item right"><div class="content"><h4>11:00 - 12:30</h4><p>Charla: Saúde mental e rendemento</p></div></div>
+        <div class="timeline-item left"><div class="content"><h4>12:30 - 13:00</h4><p>Descanso e networking</p></div></div>
+        <div class="timeline-item right"><div class="content"><h4>13:00 - 14:00</h4><p>Taller práctico: Hábitos saudables</p></div></div>
+      </div>
 
-    <!-- Timeline Tarde -->
-    <div id="timeline-tarde" class="timeline" style="display:none; opacity:0;">
-      <div class="timeline-item left"><div class="time">16:00 - 16:30</div><div class="event">Pausa café</div></div>
-      <div class="timeline-item right"><div class="time">16:30 - 18:00</div><div class="event">Taller práctico: Estrategias de recuperación</div></div>
-      <div class="timeline-item left"><div class="time">18:00 - 18:30</div><div class="event">Descanso</div></div>
-      <div class="timeline-item right"><div class="time">18:30 - 20:00</div><div class="event">Charla: Mindfulness e concentración</div></div>
-      <div class="timeline-item left"><div class="time">20:00 - 21:00</div><div class="event">Cierre e despedida</div></div>
+      <div id="timeline-tarde" class="timeline-vertical" style="display:none; opacity:0;">
+        <div class="timeline-item left"><div class="content"><h4>16:00 - 16:30</h4><p>Pausa café</p></div></div>
+        <div class="timeline-item right"><div class="content"><h4>16:30 - 18:00</h4><p>Taller práctico: Estrategias de recuperación</p></div></div>
+        <div class="timeline-item left"><div class="content"><h4>18:00 - 18:30</h4><p>Descanso</p></div></div>
+        <div class="timeline-item right"><div class="content"><h4>18:30 - 20:00</h4><p>Charla: Mindfulness e concentración</p></div></div>
+        <div class="timeline-item left"><div class="content"><h4>20:00 - 21:00</h4><p>Cierre e despedida</p></div></div>
+      </div>
     </div>
   </section>
 
@@ -396,7 +262,7 @@ footer {
 
 </div>
 
-<!-- ENTIDADES COLABORADORAS -->
+<!-- PARTNERS -->
 <div class="partners">
   <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
   <img src="images/xunta.png" alt="Xunta de Galicia">
@@ -424,10 +290,8 @@ footer {
   </div>
 </footer>
 
-<!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn">↑</div>
 
-<!-- ---------------------- JS ---------------------- -->
 <script>
 const sections = document.querySelectorAll('.section');
 const heroCards = document.querySelectorAll('.hero-card');
@@ -446,7 +310,7 @@ function toggleDescription(card) {
   if(desc) desc.style.display = (desc.style.display === 'block') ? 'none' : 'block';
 }
 
-// Mostrar timeline con fade-in
+// Mostrar timeline
 function showTimeline(part) {
   const mana = document.getElementById('timeline-mana');
   const tarde = document.getElementById('timeline-tarde');
@@ -461,7 +325,6 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 400) topBtn.style.display = "block";
   else topBtn.style.display = "none";
 });
-
 topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
 window.addEventListener('load', checkVisible);
 </script>
