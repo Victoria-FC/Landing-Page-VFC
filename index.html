@@ -61,6 +61,13 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .descripcion.open { max-height: 200px; opacity: 1; }
 
 /* ---------------------- OBJETIVOS ---------------------- */
+/* ---------------------- OBJETIVOS ---------------------- */
+.section h2 {
+  color: #C62828; /* color del título */
+  font-size: 1.6em;
+  margin-bottom: 1rem;
+}
+
 .objetivos-list {
   list-style: none;
   padding: 0;
@@ -72,7 +79,7 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   align-items: flex-start;
   margin-bottom: 18px;
   font-size: 1.05em;
-  line-height: 1.5; /* mejora la legibilidad */
+  line-height: 1.5;
 }
 
 .objetivos-list li .icon {
@@ -80,8 +87,12 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
   height: 28px;
   margin-right: 12px;
   flex-shrink: 0;
-  /* aplica el mismo color que el título */
+  /* filtro para teñir los SVG externos con el mismo rojo del título */
   filter: invert(27%) sepia(97%) saturate(747%) hue-rotate(340deg) brightness(90%) contrast(90%);
+}
+
+.objetivos-list li span {
+  display: inline-block;
 }
 
 /* ---------------------- PROGRAMA (Mejorado) ---------------------- */
@@ -229,23 +240,23 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   <h2>Obxectivos</h2>
   <ul class="objetivos-list">
     <li>
-      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M..."/></svg>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/book-open.svg" alt="Libro">
       <span>Proporcionar recursos para <b>comprender</b> mellor o <b>funcionamento do corpo e as súas necesidades</b>.</span>
     </li>
     <li>
-      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M..."/></svg>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg" alt="Corazón">
       <span>Axudar a <b>xestionar</b> as <b>esixencias físicas e emocionais</b> tanto da práctica deportiva como da vida diaria.</span>
     </li>
     <li>
-      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M..."/></svg>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/settings.svg" alt="Ferramentas">
       <span>Ofrecer ferramentas que permitan incorporar <b>hábitos saudables</b> e sostibles no tempo.</span>
     </li>
     <li>
-      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M..."/></svg>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="Cerebro">
       <span>Sensibilizar sobre a <b>importancia da saúde mental e emocional</b> no rendemento deportivo e no benestar global.</span>
     </li>
     <li>
-      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M..."/></svg>
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Persoas">
       <span>Crear un <b>espazo accesible</b> a persoas de todas as idades e niveis de práctica, favorecendo a inclusión e a aprendizaxe común.</span>
     </li>
   </ul>
