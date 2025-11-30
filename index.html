@@ -1,4 +1,4 @@
-+<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="gl">
 <head>
 <meta charset="UTF-8">
@@ -57,7 +57,8 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .ponente-photo img { width:100%; height:100%; object-fit:cover; }
 .ponente-card h3 { font-size:1.1em; font-weight:700; margin-bottom:4px; }
 .ponente-card .cargo { font-size:0.95em; color:#555; margin-bottom:6px; }
-.ponente-card .descripcion { display:none; font-size:0.95em; color:#333; }
+.descripcion { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.5s ease; opacity: 0; }
+.descripcion.open { max-height: 200px; opacity: 1; }
 
 /* ---------------------- OBJETIVOS ---------------------- */
 .objetivos-list { list-style:none; padding:0; margin:0; }
@@ -73,44 +74,39 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 /* Línea y bullets alineados + animación */
 .timeline-list { position: relative; margin: 30px 0; padding-left: 80px; }
 .timeline-list::before { content:''; position:absolute; left:40px; top:0; bottom:0; width:4px; background:#900; }
-
 .timeline-event {
   position: relative;
   margin-bottom: 25px;
   padding: 12px 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   background:#f0f0f0;
   color:#333;
   opacity: 0;
   transform: translateY(30px);
-  transition: 0.6s ease;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  display: flex;
+  flex-direction: column;
 }
-.timeline-event.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.timeline-event.visible { opacity: 1; transform: translateY(0); }
 .timeline-event::before {
-  content:'';
-  position:absolute;
-  left:32px; /* centrado respecto a la línea en 40px */
-  top:50%;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  transform:translateY(-50%) scale(0.5);
-  border:3px solid #fff;
-  opacity:0;
-  transition:0.4s ease;
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(0.5);
+  border: 3px solid #fff;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
-.timeline-event.visible::before {
-  transform:translateY(-50%) scale(1);
-  opacity:1;
-}
+.timeline-event.visible::before { transform: translateY(-50%) scale(1); opacity:1; }
 .timeline-event.charla::before { background:#c44; }
 .timeline-event.pausa::before { background:#aaa; }
 .timeline-event.charla { border-left: 4px solid #c44; }
 .timeline-event.pausa { border-left: 4px dashed #aaa; }
+.timeline-event .time { font-weight: 600; margin-bottom:5px; color:#900; }
 
 /* ---------------------- PARTNERS ---------------------- */
 .partners { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:45px 0; }
@@ -155,15 +151,15 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 
     <div class="hero-cards">
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg" alt="Localización">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg" alt="Localización" loading="lazy">
         <span>Santiago de Compostela</span>
       </div>
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg" alt="Calendario">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg" alt="Calendario" loading="lazy">
         <span>28 de febreiro de 2026</span>
       </div>
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg" alt="Horario">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg" alt="Horario" loading="lazy">
         <span>9:00h - 21:00h</span>
       </div>
     </div>
@@ -206,20 +202,14 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   <h2>Poñentes</h2>
   <div class="ponentes-grid">
     <div class="ponente-card" onclick="toggleDescription(this)">
-      <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás"></div>
+      <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás" loading="lazy"></div>
       <h3>Irene Mirás</h3>
       <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
       <p class="descripcion">Foi deportista de alto nivel en piragüismo, traballa con deportistas de alto nivel e amatéur...</p>
     </div>
-    <!-- Ponentes pendientes -->
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <!-- más ponentes pendientes aquí -->
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <!-- más ponentes aquí -->
   </div>
 </section>
 
@@ -232,18 +222,18 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
     <button id="btn-mana">Mañá</button>
     <button id="btn-tarde">Tarde</button>
   </div>
-  <div id="timeline-mana" class="timeline-list" style="display:none;">
-    <div class="timeline-event charla"><span class="time">9:00 - 10:00</span> Charla: Nutrición Deportiva</div>
-    <div class="timeline-event pausa"><span class="time">10:00 - 10:30</span> Pausa Café</div>
-    <div class="timeline-event charla"><span class="time">10:30 - 11:30</span> Mesa Redonda: Estrés e Rendemento</div>
-    <div class="timeline-event pausa"><span class="time">11:30 - 12:00</span> Descanso</div>
-    <div class="timeline-event charla"><span class="time">12:00 - 13:00</span> Taller: Preparación Mental</div>
+  <div id="timeline-mana" class="timeline-list">
+    <div class="timeline-event charla"><span class="time">9:00 - 10:00</span>Charla: Nutrición Deportiva</div>
+    <div class="timeline-event pausa"><span class="time">10:00 - 10:30</span>Pausa Café</div>
+    <div class="timeline-event charla"><span class="time">10:30 - 11:30</span>Mesa Redonda: Estrés e Rendemento</div>
+    <div class="timeline-event pausa"><span class="time">11:30 - 12:00</span>Descanso</div>
+    <div class="timeline-event charla"><span class="time">12:00 - 13:00</span>Taller: Preparación Mental</div>
   </div>
   <div id="timeline-tarde" class="timeline-list" style="display:none;">
-    <div class="timeline-event charla"><span class="time">15:00 - 16:00</span> Taller: Rehabilitación Física</div>
-    <div class="timeline-event pausa"><span class="time">16:00 - 16:30</span> Pausa Café</div>
-    <div class="timeline-event charla"><span class="time">16:30 - 17:30</span> Charla: Recuperación Post-Competición</div>
-    <div class="timeline-event charla"><span class="time">17:30 - 18:30</span> Mesa Redonda Final</div>
+    <div class="timeline-event charla"><span class="time">15:00 - 16:00</span>Taller: Rehabilitación Física</div>
+    <div class="timeline-event pausa"><span class="time">16:00 - 16:30</span>Pausa Café</div>
+    <div class="timeline-event charla"><span class="time">16:30 - 17:30</span>Charla: Recuperación Post-Competición</div>
+    <div class="timeline-event charla"><span class="time">17:30 - 18:30</span>Mesa Redonda Final</div>
   </div>
 </section>
 
@@ -258,17 +248,17 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 
 <!-- PARTNERS -->
 <div class="partners">
-  <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
-  <img src="images/xunta.png" alt="Xunta de Galicia">
-  <img src="images/logo usc.png" alt="USC">
+  <img src="images/Concello de Santiago.png" alt="Concello de Santiago" loading="lazy">
+  <img src="images/xunta.png" alt="Xunta de Galicia" loading="lazy">
+  <img src="images/logo usc.png" alt="USC" loading="lazy">
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-container">
     <div class="footer-left">
-      <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club">
-      <img class="logo-aniversario" src="images/10aniversario.png" alt="10º Aniversario">
+      <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club" loading="lazy">
+      <img class="logo-aniversario" src="images/10aniversario.png" alt="10º Aniversario" loading="lazy">
     </div>
     <div class="footer-right">
       <div class="contact-info">
@@ -276,9 +266,9 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
         <p><a href="mailto:victoriafemenino@gmail.com">victoriafemenino@gmail.com</a></p>
       </div>
       <div class="social-icons">
-        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
-        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
-        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png" alt="Facebook" loading="lazy"></a>
+        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png" alt="YouTube" loading="lazy"></a>
+        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png" alt="Instagram" loading="lazy"></a>
       </div>
     </div>
   </div>
@@ -287,74 +277,74 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 <!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn">↑</div>
 
-<!-- ---------------------- JS ---------------------- -->
 <script>
+// ================= HERO CARDS & SECTIONS =================
 const sections = document.querySelectorAll('.section');
 const heroCards = document.querySelectorAll('.hero-card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+heroCards.forEach(card => observer.observe(card));
+
+// ================== TOP BUTTON ==================
 const topBtn = document.getElementById("topBtn");
-
-// Animación scroll (secciones y hero cards)
-function checkVisible() {
-  const scrollY = window.pageYOffset + window.innerHeight * 0.8;
-  sections.forEach(s => { if(scrollY > s.offsetTop) s.classList.add('visible'); });
-  heroCards.forEach(c => { if(scrollY > c.offsetTop) c.classList.add('visible'); });
-}
-
-// Toggle descripción del ponente
-function toggleDescription(card) {
-  const desc = card.querySelector('.descripcion');
-  if(desc) desc.style.display = (desc.style.display === 'block') ? 'none' : 'block';
-}
-
 window.addEventListener('scroll', () => {
-  checkVisible();
   topBtn.style.display = window.scrollY > 400 ? "block" : "none";
 });
-
 topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
-window.addEventListener('load', checkVisible);
 
-// Timeline buttons
+// ================== PONENTES ==================
+function toggleDescription(card) {
+  const desc = card.querySelector('.descripcion');
+  if(desc) desc.classList.toggle('open');
+}
+
+// ================== TIMELINE ==================
 const btnMana = document.getElementById('btn-mana');
 const btnTarde = document.getElementById('btn-tarde');
 const timelineMana = document.getElementById('timeline-mana');
 const timelineTarde = document.getElementById('timeline-tarde');
 
-btnMana.addEventListener('click', () => {
-  timelineMana.style.display = 'block';
-  timelineTarde.style.display = 'none';
-  btnMana.classList.add('active');
-  btnTarde.classList.remove('active');
-  revealTimelineEvents(timelineMana);
-});
-
-btnTarde.addEventListener('click', () => {
-  timelineMana.style.display = 'none';
-  timelineTarde.style.display = 'block';
-  btnTarde.classList.add('active');
-  btnMana.classList.remove('active');
-  revealTimelineEvents(timelineTarde);
-});
-
-// Animación "pop" de eventos del timeline
-function revealTimelineEvents(listEl) {
-  const events = listEl.querySelectorAll('.timeline-event');
-  const triggerY = window.pageYOffset + window.innerHeight * 0.8;
-  events.forEach(ev => {
-    if (triggerY > ev.offsetTop) ev.classList.add('visible');
-  });
+function showTimeline(timelineToShow, btnActive, btnInactive) {
+  timelineToShow.style.display = 'block';
+  (timelineToShow === timelineMana ? timelineTarde : timelineMana).style.display = 'none';
+  btnActive.classList.add('active');
+  btnInactive.classList.remove('active');
 }
 
-// Revelado inicial si ya está visible
-window.addEventListener('load', () => {
-  if (timelineMana.style.display !== 'none') revealTimelineEvents(timelineMana);
-  if (timelineTarde.style.display !== 'none') revealTimelineEvents(timelineTarde);
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      timelineObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+function initTimeline(timeline) {
+  timeline.querySelectorAll('.timeline-event').forEach(ev => timelineObserver.observe(ev));
+}
+
+btnMana.addEventListener('click', () => {
+  showTimeline(timelineMana, btnMana, btnTarde);
+  initTimeline(timelineMana);
+});
+btnTarde.addEventListener('click', () => {
+  showTimeline(timelineTarde, btnTarde, btnMana);
+  initTimeline(timelineTarde);
 });
 
-// Revelar al hacer scroll
-window.addEventListener('scroll', () => {
-  if (timelineMana.style.display !== 'none') revealTimelineEvents(timelineMana);
-  if (timelineTarde.style.display !== 'none') revealTimelineEvents(timelineTarde);
+// Mostrar mañana por defecto
+window.addEventListener('load', () => {
+  showTimeline(timelineMana, btnMana, btnTarde);
+  initTimeline(timelineMana);
 });
 </script>
 
