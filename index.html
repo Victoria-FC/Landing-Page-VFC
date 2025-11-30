@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>I Xornadas: Claves para unha boa saúde mental e física</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* ---------------------- RESET ---------------------- */
@@ -14,15 +14,23 @@ a { text-decoration:none; }
 
 /* ---------------------- HEADER HERO ---------------------- */
 header {
-  position:relative;
-  background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
-  color:white; text-align:center; padding:140px 20px;
-  box-shadow: inset 0 0 80px rgba(0,0,0,0.5);
+  position:relative;
+  background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
+  color:white; text-align:center; padding:140px 20px;
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.5);
 }
 header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.55); z-index:0; }
 .hero-content { position:relative; z-index:1; max-width:1000px; margin:0 auto; }
 header h1 { font-size:3.4em; font-weight:700; color:white; text-shadow:0 2px 8px rgba(0,0,0,0.6);}
 header p { font-size:1.3em; margin-top:10px; opacity:0.95; text-shadow:0 1px 5px rgba(0,0,0,0.5); }
+
+/* =========== ESTILOS CONTADOR (URGENCIA) =========== */
+.countdown-timer { display: flex; justify-content: center; gap: 30px; margin: 40px 0; color: #ff0000; flex-wrap: wrap; }
+.timer-unit { display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,0.4); padding: 15px 25px; border-radius: 10px; min-width: 100px; }
+.timer-unit span:first-child { font-size: 2.5em; font-weight: 700; line-height: 1; text-shadow: 0 0 5px rgba(255,0,0,0.8); color: white; }
+.timer-unit span:last-child { font-size: 0.9em; text-transform: uppercase; margin-top: 5px; color: #ccc; }
+/* ======================================================== */
+
 
 /* ---------------------- NAV ---------------------- */
 nav { display:flex; justify-content:center; flex-wrap:wrap; background:#000; position:sticky; top:0; z-index:20; border-bottom:3px solid #ff0000; }
@@ -31,9 +39,9 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 
 /* ---------------------- HERO CARDS ---------------------- */
 .hero-cards { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin:40px 0; }
-.hero-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border-radius:18px; padding:28px 22px; width:180px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.3); opacity:0; transform:translateY(30px); transition:0.6s ease, box-shadow 0.3s ease; }
+.hero-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border-radius:18px; padding:28px 22px; width:180px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.3); opacity:0; transform:translateY(30px); transition:0.6s ease, box-shadow 0.3s ease; color: white; }
 .hero-card.visible { opacity:1; transform:translateY(0); }
-.hero-card img { width:50px; height:50px; margin-bottom:12px; }
+.hero-card img { width:50px; height:50px; margin-bottom:12px; filter:invert(1); }
 .hero-card span { font-weight:600; display:block; font-size:1em; }
 .hero-card:hover { transform:translateY(-5px) scale(1.07); box-shadow:0 12px 28px rgba(0,0,0,0.45); }
 
@@ -49,74 +57,103 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .section h2::after { content:""; display:block; width:100px; height:3px; background:#ff0000; margin-top:6px; border-radius:1px; }
 .section p, .section ul li { margin-bottom:14px; font-size:1.05em; }
 
+/* =========== ESTILOS OBJETIVOS (LISTA DE ICONOS) =========== */
+.objetivos-list { list-style:none; padding:0; margin:0; }
+.objetivos-list li { display:flex; align-items:flex-start; margin-bottom:20px; font-weight:500; }
+.objetivos-list li .icon {
+    min-width: 30px; height: 30px; margin-right: 15px; flex-shrink: 0;
+    /* Filtro para colorear el icono con el color de acento */
+    filter: invert(20%) sepia(90%) saturate(7000%) hue-rotate(330deg) brightness(90%) contrast(100%);
+}
+/* ============================================================= */
+
 /* ---------------------- PONENTES ---------------------- */
 .ponentes-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:25px; justify-items:center; }
-.ponente-card { text-align:center; cursor:pointer; transition: transform 0.3s ease; }
-.ponente-card:hover { transform:scale(1.05); }
-.ponente-photo { width:130px; height:130px; border-radius:50%; border:3px solid #ff0000; overflow:hidden; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; }
+.ponente-card { text-align:center; cursor:pointer; transition: transform 0.3s ease; padding: 15px; border-radius: 12px; }
+.ponente-card:hover { transform:scale(1.05); background: rgba(255,0,0,0.05); }
+.ponente-photo { width:130px; height:130px; border-radius:50%; border:3px solid #ff0000; overflow:hidden; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; background: #eee; }
 .ponente-photo img { width:100%; height:100%; object-fit:cover; }
 .ponente-card h3 { font-size:1.1em; font-weight:700; margin-bottom:4px; }
 .ponente-card .cargo { font-size:0.95em; color:#555; margin-bottom:6px; }
-.descripcion { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.5s ease; opacity: 0; }
+/* Animación para la descripción */
+.descripcion { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.5s ease; opacity: 0; 
+    font-size: 0.9em; color: #333; margin-top: 10px; background: #fff8f8; padding: 10px; border-radius: 8px; text-align: left; border-left: 3px solid #ff0000;}
 .descripcion.open { max-height: 200px; opacity: 1; }
 
-/* ---------------------- OBJETIVOS ---------------------- */
-.objetivos-list { list-style:none; padding:0; margin:0; }
-.objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
-.objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; }
-
-/* ---------------------- TIMELINE ---------------------- */
+/* =========== ESTILOS PROGRAMA (TIMELINE CORREGIDO) =========== */
 .timeline-buttons { text-align:center; margin-bottom:30px; }
 .timeline-buttons button { background:#ddd; color:#333; border:none; padding:10px 25px; border-radius:25px; margin:0 10px; cursor:pointer; font-weight:600; transition:0.3s; }
 .timeline-buttons button:hover { background:#bbb; }
 .timeline-buttons button.active { background:#900; color:white; border:2px solid #ff0000; }
 
-/* Línea y bullets alineados + animación */
 .timeline-list { position: relative; margin: 30px 0; padding-left: 80px; }
-.timeline-list::before { content:''; position:absolute; left:40px; top:0; bottom:0; width:4px; background:#900; }
-.timeline-event {
-  position: relative;
-  margin-bottom: 25px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  background:#f0f0f0;
-  color:#333;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  display: flex;
-  flex-direction: column;
+/* LÍNEA VERTICAL (AJUSTADA) */
+.timeline-list::before { 
+  content:''; 
+  position:absolute; 
+  left: 36px; 
+  top:0; 
+  bottom:0; 
+  width:4px; 
+  background:#900; 
 }
-.timeline-event.visible { opacity: 1; transform: translateY(0); }
+.timeline-event {
+  position: relative;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background:#f0f0f0;
+  color:#333;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  display: flex;
+  flex-direction: column;
+}
+.timeline-event.visible { opacity: 1; transform: translateX(0); }
+
+/* PUNTO DE EVENTO (CORREGIDO Y CENTRADO) */
 .timeline-event::before {
-  content: '';
-  position: absolute;
-  left: 32px;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  transform: translateY(-50%) scale(0.5);
-  border: 3px solid #fff;
-  opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  content: '';
+  position: absolute;
+  left: 30px; 
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(0.5);
+  border: 3px solid #fff;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 10;
 }
 .timeline-event.visible::before { transform: translateY(-50%) scale(1); opacity:1; }
+/* Estilos por tipo de evento */
 .timeline-event.charla::before { background:#c44; }
 .timeline-event.pausa::before { background:#aaa; }
 .timeline-event.charla { border-left: 4px solid #c44; }
 .timeline-event.pausa { border-left: 4px dashed #aaa; }
 .timeline-event .time { font-weight: 600; margin-bottom:5px; color:#900; }
+/* ============================================================= */
 
 /* ---------------------- PARTNERS ---------------------- */
-.partners { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:45px 0; }
-.partners img { height:60px; filter:brightness(1.1); transition:0.3s; }
-.partners img:hover { transform:scale(1.1); }
+.partners { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:45px 0; align-items: center; }
+.partners img {
+  height:60px;
+  /* Efecto hover mejorado */
+  filter: grayscale(100%) opacity(0.8);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.partners img:hover {
+  filter: grayscale(0%) brightness(1.1) drop-shadow(0 0 8px rgba(0,0,0,0.1));
+  transform:scale(1.15);
+}
 
 /* ---------------------- FOOTER ---------------------- */
 footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #ff0000; margin-top:30px; }
 .footer-container { display:flex; justify-content:space-between; flex-wrap:wrap; max-width:1000px; margin:0 auto; gap:20px; }
-.footer-left img { height:120px; border:none; margin-right:20px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.footer-left { display: flex; align-items: center; }
+.footer-left img { height:120px; border:none; margin-right:20px; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 5px; }
 .footer-left img:hover { transform: scale(1.05); box-shadow:0 0 15px rgba(255,255,255,0.9); }
 .footer-right p { margin-bottom:10px; }
 .footer-right a { color:#fff; transition:0.3s; }
@@ -130,221 +167,267 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 
 /* ---------------------- RESPONSIVE ---------------------- */
 @media(max-width:768px){
-  header h1 { font-size:2.6em; }
-  .hero-card { width:150px; padding:25px 20px; }
-  .registro-button { font-size:1.2em; padding:18px 35px; }
+  header h1 { font-size:2.6em; }
+  .hero-card { width:150px; padding:25px 20px; }
+  .registro-button { font-size:1.2em; padding:18px 35px; }
+  .countdown-timer { gap: 15px; }
+  .timer-unit { min-width: 80px; padding: 10px; }
+  .timer-unit span:first-child { font-size: 2em; }
 }
 @media(max-width:480px){
-  header h1 { font-size:2em; }
-  .hero-card { width:130px; padding:18px 15px; }
-  .registro-button { font-size:1.1em; padding:15px 30px; }
+  header h1 { font-size:2em; }
+  .hero-card { width:130px; padding:18px 15px; }
+  .registro-button { font-size:1.1em; padding:15px 30px; }
 }
 </style>
 </head>
-<body>
 
-<!-- HEADER -->
+<body onload="startCountdown()">
+
 <header>
-  <div class="hero-content">
-    <h1>I Xornadas: Claves para unha boa saúde mental e física</h1>
-    <p>Un espazo para compartir coñecementos e experiencias sobre saúde integral.</p>
+  <div class="hero-content">
+    <h1>I Xornadas: Claves para unha boa saúde mental e física</h1>
+    <p>Un espazo para compartir coñecementos e experiencias sobre saúde integral.</p>
 
-    <div class="hero-cards">
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg" alt="Localización" loading="lazy">
-        <span>Santiago de Compostela</span>
-      </div>
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg" alt="Calendario" loading="lazy">
-        <span>28 de febreiro de 2026</span>
-      </div>
-      <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg" alt="Horario" loading="lazy">
-        <span>9:00h - 21:00h</span>
-      </div>
-    </div>
+        <div id="countdown" class="countdown-timer">
+      <div class="timer-unit">
+        <span id="days">00</span>
+        <span>Días</span>
+      </div>
+      <div class="timer-unit">
+        <span id="hours">00</span>
+        <span>Horas</span>
+      </div>
+      <div class="timer-unit">
+        <span id="minutes">00</span>
+        <span>Mins</span>
+      </div>
+      <div class="timer-unit">
+        <span id="seconds">00</span>
+        <span>Segs</span>
+      </div>
+    </div>
 
-    <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
-  </div>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg" alt="Localización" loading="lazy">
+        <span>Santiago de Compostela</span>
+      </div>
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg" alt="Calendario" loading="lazy">
+        <span>28 de febreiro de 2026</span>
+      </div>
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg" alt="Horario" loading="lazy">
+        <span>9:00h - 21:00h</span>
+      </div>
+    </div>
+
+    <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
+  </div>
 </header>
 
-<!-- NAV -->
 <nav>
-  <a href="#presentacion">Presentación</a>
-  <a href="#obxectivos">Obxectivos</a>
-  <a href="#ponentes">Poñentes</a>
-  <a href="#programa">Programa</a>
-  <a href="#registro">Rexistro</a>
+  <a href="#presentacion">Presentación</a>
+  <a href="#obxectivos">Obxectivos</a>
+  <a href="#ponentes">Poñentes</a>
+  <a href="#programa">Programa</a>
+  <a href="#registro">Rexistro</a>
 </nav>
 
 <div class="container">
 
-<!-- PRESENTACIÓN -->
 <section id="presentacion" class="section">
-  <h2>Presentación</h2>
-  <p>Estas xornadas nacen coa vontade de crear un espazo de formación, reflexión e encontro arredor do coidado da saúde física e mental no ámbito deportivo...</p>
+  <h2>Presentación</h2>
+  <p>Estas xornadas nacen coa vontade de crear un espazo de formación, reflexión e encontro arredor do coidado da saúde física e mental no ámbito deportivo...</p>
 </section>
 
-<!-- OBJETIVOS -->
 <section id="obxectivos" class="section">
-  <h2>Obxectivos</h2>
-  <ul class="objetivos-list">
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/book-open.svg" alt="">Comprender o funcionamento do corpo e as súas necesidades</li>
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg" alt="">Axudar a xestionar esixencias físicas e emocionais</li>
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/setting.svg" alt="">Ofrecer ferramentas para hábitos saudables</li>
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="">Sensibilizar sobre saúde mental</li>
-    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="">Espazo inclusivo para todos os niveis</li>
-  </ul>
+  <h2>Obxectivos</h2>
+  <ul class="objetivos-list">
+    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/book-open.svg" alt="Libro abierto">Comprender o funcionamento do corpo e as súas necesidades</li>
+    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg" alt="Pulso cardíaco">Axudar a xestionar esixencias físicas e emocionais</li>
+    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/setting.svg" alt="Ajustes">Ofrecer ferramentas para hábitos saudables</li>
+    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="Cerebro">Sensibilizar sobre saúde mental</li>
+    <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Usuarios">Espazo inclusivo para todos os niveis</li>
+  </ul>
 </section>
 
-<!-- PONENTES -->
 <section id="ponentes" class="section">
-  <h2>Poñentes</h2>
-  <div class="ponentes-grid">
-    <div class="ponente-card" onclick="toggleDescription(this)">
-      <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás" loading="lazy"></div>
-      <h3>Irene Mirás</h3>
-      <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
-      <p class="descripcion">Foi deportista de alto nivel en piragüismo, traballa con deportistas de alto nivel e amatéur...</p>
-    </div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <!-- más ponentes aquí -->
-  </div>
+  <h2>Poñentes</h2>
+  <div class="ponentes-grid">
+    <div class="ponente-card" onclick="toggleDescription(this)">
+      <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás" loading="lazy"></div>
+      <h3>Irene Mirás</h3>
+      <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
+      <p class="descripcion">Foi deportista de alto nivel en piragüismo, traballa con deportistas de alto nivel e amatéur...</p>
+    </div>
+    <div class="ponente-card" onclick="toggleDescription(this)"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion">¡Mantente atento! Nuestro próximo ponente será anunciado muy pronto.</p></div>
+    <div class="ponente-card" onclick="toggleDescription(this)"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion">¡Mantente atento! Nuestro próximo ponente será anunciado muy pronto.</p></div>
+      </div>
 </section>
 
-<!-- PROGRAMA / TIMELINE -->
 <section id="programa" class="section">
-  <h2>Programa</h2>
-  <p>Ao longo dunha xornada formativa, diferentes especialistas do ámbito da saúde e do deporte impartirán charlas e sesións dirixidas a mellorar o benestar integral das persoas participantes.</p>
-  <p>Aquí poderás ver os distintos bloques da xornada. Selecciona mañá ou tarde para amosar a programación correspondente.</p>
-  <div class="timeline-buttons">
-    <button id="btn-mana">Mañá</button>
-    <button id="btn-tarde">Tarde</button>
-  </div>
-  <div id="timeline-mana" class="timeline-list">
-    <div class="timeline-event charla"><span class="time">9:00 - 10:00</span>Charla: Nutrición Deportiva</div>
-    <div class="timeline-event pausa"><span class="time">10:00 - 10:30</span>Pausa Café</div>
-    <div class="timeline-event charla"><span class="time">10:30 - 11:30</span>Mesa Redonda: Estrés e Rendemento</div>
-    <div class="timeline-event pausa"><span class="time">11:30 - 12:00</span>Descanso</div>
-    <div class="timeline-event charla"><span class="time">12:00 - 13:00</span>Taller: Preparación Mental</div>
-  </div>
-  <div id="timeline-tarde" class="timeline-list" style="display:none;">
-    <div class="timeline-event charla"><span class="time">15:00 - 16:00</span>Taller: Rehabilitación Física</div>
-    <div class="timeline-event pausa"><span class="time">16:00 - 16:30</span>Pausa Café</div>
-    <div class="timeline-event charla"><span class="time">16:30 - 17:30</span>Charla: Recuperación Post-Competición</div>
-    <div class="timeline-event charla"><span class="time">17:30 - 18:30</span>Mesa Redonda Final</div>
-  </div>
+  <h2>Programa</h2>
+  <p>Ao longo dunha xornada formativa, diferentes especialistas do ámbito da saúde e do deporte impartirán charlas e sesións dirixidas a mellorar o benestar integral das persoas participantes.</p>
+  <p>Aquí poderás ver os distintos bloques da xornada. Selecciona mañá ou tarde para amosar a programación correspondente.</p>
+  <div class="timeline-buttons">
+    <button id="btn-mana">Mañá</button>
+    <button id="btn-tarde">Tarde</button>
+  </div>
+  <div id="timeline-mana" class="timeline-list">
+    <div class="timeline-event charla"><span class="time">9:00 - 10:00</span>Charla: Nutrición Deportiva</div>
+    <div class="timeline-event pausa"><span class="time">10:00 - 10:30</span>Pausa Café</div>
+    <div class="timeline-event charla"><span class="time">10:30 - 11:30</span>Mesa Redonda: Estrés e Rendemento</div>
+    <div class="timeline-event pausa"><span class="time">11:30 - 12:00</span>Descanso</div>
+    <div class="timeline-event charla"><span class="time">12:00 - 13:00</span>Taller: Preparación Mental</div>
+  </div>
+  <div id="timeline-tarde" class="timeline-list" style="display:none;">
+    <div class="timeline-event charla"><span class="time">15:00 - 16:00</span>Taller: Rehabilitación Física</div>
+    <div class="timeline-event pausa"><span class="time">16:00 - 16:30</span>Pausa Café</div>
+    <div class="timeline-event charla"><span class="time">16:30 - 17:30</span>Charla: Recuperación Post-Competición</div>
+    <div class="timeline-event charla"><span class="time">17:30 - 18:30</span>Mesa Redonda Final</div>
+  </div>
 </section>
 
-<!-- REGISTRO -->
 <section id="registro" class="section">
-  <h2>Rexistro</h2>
-  <p>Podes inscribirte no seguinte enlace:</p>
-  <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme ás Xornadas</a>
+  <h2>Rexistro</h2>
+  <p>Podes inscribirte no seguinte enlace:</p>
+  <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme ás Xornadas</a>
 </section>
 
 </div>
 
-<!-- PARTNERS -->
 <div class="partners">
-  <img src="images/Concello de Santiago.png" alt="Concello de Santiago" loading="lazy">
-  <img src="images/xunta.png" alt="Xunta de Galicia" loading="lazy">
-  <img src="images/logo usc.png" alt="USC" loading="lazy">
+  <img src="images/Concello de Santiago.png" alt="Concello de Santiago" loading="lazy">
+  <img src="images/xunta.png" alt="Xunta de Galicia" loading="lazy">
+  <img src="images/logo usc.png" alt="USC" loading="lazy">
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-container">
-    <div class="footer-left">
-      <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club" loading="lazy">
-      <img class="logo-aniversario" src="images/10aniversario.png" alt="10º Aniversario" loading="lazy">
-    </div>
-    <div class="footer-right">
-      <div class="contact-info">
-        <p>Estadio de San Lázaro Porta 11, 15707, Santiago de Compostela</p>
-        <p><a href="mailto:victoriafemenino@gmail.com">victoriafemenino@gmail.com</a></p>
-      </div>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png" alt="Facebook" loading="lazy"></a>
-        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png" alt="YouTube" loading="lazy"></a>
-        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png" alt="Instagram" loading="lazy"></a>
-      </div>
-    </div>
-  </div>
+  <div class="footer-container">
+    <div class="footer-left">
+      <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club" loading="lazy">
+      <img class="logo-aniversario" src="images/10aniversario.png" alt="10º Aniversario" loading="lazy">
+    </div>
+    <div class="footer-right">
+      <div class="contact-info">
+        <p>Estadio de San Lázaro Porta 11, 15707, Santiago de Compostela</p>
+        <p><a href="mailto:victoriafemenino@gmail.com">victoriafemenino@gmail.com</a></p>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png" alt="Facebook" loading="lazy"></a>
+        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png" alt="YouTube" loading="lazy"></a>
+        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png" alt="Instagram" loading="lazy"></a>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn">↑</div>
 
 <script>
-// ================= HERO CARDS & SECTIONS =================
+// ================= VARIABLES GLOBALES =================
 const sections = document.querySelectorAll('.section');
 const heroCards = document.querySelectorAll('.hero-card');
+const topBtn = document.getElementById("topBtn");
+
+// ================= 1. CONTADOR DE TIEMPO (URGENCIA) =================
+function startCountdown() {
+    // Fecha objetivo: 28 de febreiro de 2026 a las 09:00:00 (CET)
+    const countdownDate = new Date("2026-02-28T09:00:00").getTime();
+
+    const interval = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Mostrar el resultado con formato "00"
+        document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+        if (distance < 0) {
+            clearInterval(interval);
+            document.getElementById("countdown").innerHTML = "<h2 style='color: white;'>¡Evento en curso!</h2>";
+        }
+    }, 1000);
+}
+
+// ================= 2. ANIMACIONES EN SCROLL (Intersection Observer) =================
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
 
 sections.forEach(section => observer.observe(section));
 heroCards.forEach(card => observer.observe(card));
 
-// ================== TOP BUTTON ==================
-const topBtn = document.getElementById("topBtn");
+
+// ================== 3. BOTÓN VOLVER ARRIBA ==================
 window.addEventListener('scroll', () => {
-  topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+  topBtn.style.display = window.scrollY > 400 ? "block" : "none";
 });
 topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
 
-// ================== PONENTES ==================
+
+// ================== 4. PONENTES: Toggle Descripción ==================
 function toggleDescription(card) {
-  const desc = card.querySelector('.descripcion');
-  if(desc) desc.classList.toggle('open');
+  const desc = card.querySelector('.descripcion');
+  if(desc) desc.classList.toggle('open');
 }
 
-// ================== TIMELINE ==================
+
+// ================== 5. PROGRAMA: Toggle Mañá/Tarde ==================
 const btnMana = document.getElementById('btn-mana');
 const btnTarde = document.getElementById('btn-tarde');
 const timelineMana = document.getElementById('timeline-mana');
 const timelineTarde = document.getElementById('timeline-tarde');
 
-function showTimeline(timelineToShow, btnActive, btnInactive) {
-  timelineToShow.style.display = 'block';
-  (timelineToShow === timelineMana ? timelineTarde : timelineMana).style.display = 'none';
-  btnActive.classList.add('active');
-  btnInactive.classList.remove('active');
-}
-
 const timelineObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      timelineObserver.unobserve(entry.target);
-    }
-  });
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      timelineObserver.unobserve(entry.target);
+    }
+  });
 }, { threshold: 0.1 });
 
-function initTimeline(timeline) {
-  timeline.querySelectorAll('.timeline-event').forEach(ev => timelineObserver.observe(ev));
+function showTimeline(timelineToShow, btnActive, btnInactive) {
+  // Muestra el timeline seleccionado y oculta el otro
+  timelineToShow.style.display = 'block';
+  (timelineToShow === timelineMana ? timelineTarde : timelineMana).style.display = 'none';
+  
+  // Activa y desactiva los botones
+  btnActive.classList.add('active');
+  btnInactive.classList.remove('active');
+  
+  // Reinicia la animación de los eventos
+  timelineToShow.querySelectorAll('.timeline-event').forEach(ev => {
+    ev.classList.remove('visible');
+    timelineObserver.observe(ev); // Vuelve a observar para activar la animación
+  });
 }
 
 btnMana.addEventListener('click', () => {
-  showTimeline(timelineMana, btnMana, btnTarde);
-  initTimeline(timelineMana);
+  showTimeline(timelineMana, btnMana, btnTarde);
 });
 btnTarde.addEventListener('click', () => {
-  showTimeline(timelineTarde, btnTarde, btnMana);
-  initTimeline(timelineTarde);
+  showTimeline(timelineTarde, btnTarde, btnMana);
 });
 
-// Mostrar mañana por defecto
+// Inicialización: Muestra Mañá por defecto al cargar la página
 window.addEventListener('load', () => {
-  showTimeline(timelineMana, btnMana, btnTarde);
-  initTimeline(timelineMana);
+  showTimeline(timelineMana, btnMana, btnTarde);
 });
 </script>
 
