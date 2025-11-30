@@ -9,7 +9,12 @@
 <style>
 /* ---------------------- RESET ---------------------- */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Poppins',sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
+body {
+  font-family:'Poppins',sans-serif;
+  background:#f5f5f5;
+  color:#333;
+  line-height:1.6;
+}
 a { text-decoration:none; }
 
 /* ---------------------- HEADER HERO ---------------------- */
@@ -39,7 +44,10 @@ nav {
   position:sticky; top:0; z-index:20;
   border-bottom:3px solid #ff0000;
 }
-nav a { color:#fff; margin:5px 20px; padding:12px 0; font-weight:600; transition:0.3s; }
+nav a {
+  color:#fff; margin:5px 20px; padding:12px 0;
+  font-weight:600; transition:0.3s;
+}
 nav a:hover { color:#ff0000; transform:translateY(-3px); }
 
 /* ---------------------- HERO CARDS ---------------------- */
@@ -60,7 +68,11 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .hero-card.visible { opacity:1; transform:translateY(0); }
 .hero-card img { width:50px; height:50px; margin-bottom:12px; filter:invert(1); }
 .hero-card span { font-weight:600; display:block; font-size:1em; }
-.hero-card:hover { transform:translateY(-5px) scale(1.07); box-shadow:0 12px 28px rgba(0,0,0,0.45); }
+
+.hero-card:hover {
+  transform:translateY(-5px) scale(1.07);
+  box-shadow:0 12px 28px rgba(0,0,0,0.45);
+}
 
 /* ---------------------- BOTÓN REGISTRO ---------------------- */
 .registro-button {
@@ -113,100 +125,92 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 }
 .section p, .section ul li { margin-bottom:14px; font-size:1.05em; }
 
-/* ---------------------- OBJETIVOS ---------------------- */
-.objetivos-list { list-style:none; padding:0; margin:0; }
-.objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
-.objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; filter: invert(0.25) sepia(1) saturate(5) hue-rotate(-10deg); }
-
 /* ---------------------- PONENTES ---------------------- */
-.ponentes-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:25px; justify-items:center; }
-.ponente-card { text-align:center; cursor:pointer; transition: transform 0.3s ease; }
+.ponentes-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap:25px;
+  justify-items:center;
+}
+.ponente-card {
+  text-align:center;
+  cursor:pointer;
+  transition: transform 0.3s ease;
+}
 .ponente-card:hover { transform:scale(1.05); }
-.ponente-photo { width:130px; height:130px; border-radius:50%; border:3px solid #ff0000; overflow:hidden; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; }
+.ponente-photo {
+  width:130px; height:130px;
+  border-radius:50%;
+  border:3px solid #ff0000;
+  overflow:hidden;
+  margin:0 auto 12px;
+  display:flex; align-items:center; justify-content:center;
+}
 .ponente-photo img { width:100%; height:100%; object-fit:cover; }
 .ponente-card h3 { font-size:1.1em; font-weight:700; margin-bottom:4px; }
 .ponente-card .cargo { font-size:0.95em; color:#555; margin-bottom:6px; }
 .ponente-card .descripcion { display:none; font-size:0.95em; color:#333; }
 
-/* ---------------------- TIMELINE ---------------------- */
-.timeline-buttons { text-align:center; margin-bottom:30px; }
-.timeline-buttons button {
-  background:#ddd; 
-  color:#333;
-  border:none;
-  padding:10px 25px;
-  border-radius:25px;
-  margin:0 10px;
-  cursor:pointer;
-  font-weight:600;
+/* ---------------------- PARTNERS ---------------------- */
+.partners {
+  display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
+  padding:45px 0;
+}
+.partners img {
+  height:60px;
+  filter:brightness(1.1);
   transition:0.3s;
 }
-.timeline-buttons button:hover { background:#bbb; }
-.timeline-buttons button.active { background:#900; color:white; border:2px solid #ff0000; }
-
-.timeline-list {
-  position: relative; 
-  margin: 30px 0; 
-  padding-left: 60px; 
-  border-left: 4px solid #900; 
-}
-.timeline-event {
-  position: relative; 
-  margin-bottom: 25px;
-  padding: 12px 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-.timeline-event::before {
-  content: '';
-  position: absolute;
-  left: -2px; /* alineado con la línea vertical */
-  top: 50%;
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-
-/* Eventos de charla */
-.timeline-event.charla {
-  background: linear-gradient(135deg, #f2a6a6, #d45a5a); /* degradado suave */
-  color: white;
-  font-weight: 600;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  border: 1px solid #d45a5a;
-}
-.timeline-event.charla::before { background: #d45a5a; }
-
-/* Eventos de pausa */
-.timeline-event.pausa {
-  background: #f0f0f0;
-  border: 1px dashed #900;
-  color: #555;
-  font-weight: 400;
-  box-shadow: none;
-}
-.timeline-event.pausa::before { background: #aaa; }
-
-.timeline-event .time { font-weight:600; margin-right:10px; }
-
-/* ---------------------- PARTNERS ---------------------- */
-.partners { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:45px 0; }
-.partners img { height:60px; filter:brightness(1.1); transition:0.3s; }
 .partners img:hover { transform:scale(1.1); }
 
 /* ---------------------- FOOTER ---------------------- */
-footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #ff0000; margin-top:30px; }
-.footer-container { display:flex; justify-content:space-between; flex-wrap:wrap; max-width:1000px; margin:0 auto; gap:20px; }
-.footer-left img { height:120px; border:none; margin-right:20px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.footer-left img:hover { transform: scale(1.05); box-shadow:0 0 15px rgba(255,255,255,0.9); }
+footer {
+  background:#000;
+  color:white;
+  padding:45px 20px;
+  border-top:2px solid #ff0000;
+  margin-top:30px;
+}
+.footer-container {
+  display:flex; justify-content:space-between; flex-wrap:wrap;
+  max-width:1000px; margin:0 auto; gap:20px;
+}
+.footer-left img {
+  height:120px;
+  border:none;
+  margin-right:20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.footer-left img:hover {
+  transform: scale(1.05);
+  box-shadow:0 0 15px rgba(255,255,255,0.9);
+}
 .footer-right p { margin-bottom:10px; }
 .footer-right a { color:#fff; transition:0.3s; }
 .footer-right a:hover { color:#ff0000; }
-.social-icons img { width:32px; margin-right:12px; filter:invert(1); transition: transform 0.3s ease; }
+.social-icons img {
+  width:32px; margin-right:12px;
+  filter:invert(1);
+  transition: transform 0.3s ease;
+}
 .social-icons img:hover { transform:scale(1.2); }
 
 /* ---------------------- BOTÓN VOLVER ARRIBA ---------------------- */
-#topBtn { position:fixed; right:25px; bottom:25px; background:#900; color:white; padding:14px 18px; border-radius:50%; font-size:24px; cursor:pointer; box-shadow:0 0 18px rgba(0,0,0,0.5); display:none; transition:0.3s; z-index:999; }
+#topBtn {
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  background:#900;
+  color:white;
+  padding:14px 18px;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:0 0 18px rgba(0,0,0,0.5);
+  display:none;
+  transition:0.3s;
+  z-index:999;
+}
 #topBtn:hover { background:#ff0000; }
 
 /* ---------------------- RESPONSIVE ---------------------- */
@@ -214,16 +218,74 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   header h1 { font-size:2.6em; }
   .hero-card { width:150px; padding:25px 20px; }
   .registro-button { font-size:1.2em; padding:18px 35px; }
-  .timeline-list { padding-left:40px; }
-  .timeline-event::before { left: -2px; }
 }
 @media(max-width:480px){
   header h1 { font-size:2em; }
   .hero-card { width:130px; padding:18px 15px; }
   .registro-button { font-size:1.1em; padding:15px 30px; }
 }
+
+/* ---------------------- OBJETIVOS ICONOS ---------------------- */
+.objetivos-list { list-style:none; padding:0; margin:0; }
+.objetivos-list li { display:flex; align-items:flex-start; margin-bottom:18px; font-size:1.05em; }
+.objetivos-list li .icon { width:28px; height:28px; margin-right:12px; flex-shrink:0; filter: invert(0.25) sepia(1) saturate(5) hue-rotate(-10deg); }
+
+/* ---------------------- TIMELINE ---------------------- */
+.timeline-buttons { text-align:center; margin-bottom:30px; }
+.timeline-buttons button {
+  background:#ddd; color:#333; border:none; padding:10px 25px; border-radius:25px; margin:0 10px; cursor:pointer; font-weight:600; transition:0.3s;
+}
+.timeline-buttons button:hover { background:#bbb; }
+.timeline-buttons button.active { background:#900; color:white; border:2px solid #ff0000; }
+
+.timeline-list {
+  position: relative;
+  margin: 30px 0;
+  padding-left: 60px;
+  border-left: 4px solid #900;
+}
+
+.timeline-event {
+  position: relative;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.timeline-event::before {
+  content:'';
+  position: absolute;
+  left: -8px; 
+  top: 50%;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+/* Charlas */
+.timeline-event.charla {
+  background: linear-gradient(135deg, #f8c1c1, #e69090);
+  color:white;
+  font-weight:600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid #e69090;
+}
+.timeline-event.charla::before { background: #d45a5a; }
+
+/* Pausas */
+.timeline-event.pausa {
+  background:#f0f0f0;
+  border:1px dashed #900;
+  color:#555;
+  font-weight:400;
+  box-shadow:none;
+}
+.timeline-event.pausa::before { background:#aaa; }
+
+.timeline-event .time { font-weight:600; margin-right:10px; }
 </style>
 </head>
+
 <body>
 
 <!-- HEADER -->
@@ -231,11 +293,22 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   <div class="hero-content">
     <h1>I Xornadas: Claves para unha boa saúde mental e física</h1>
     <p>Un espazo para compartir coñecementos e experiencias sobre saúde integral.</p>
+
     <div class="hero-cards">
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg"><span>Santiago de Compostela</span></div>
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg"><span>28 de febreiro de 2026</span></div>
-      <div class="hero-card"><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg"><span>9:00h - 21:00h</span></div>
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/map-pin.svg">
+        <span>Santiago de Compostela</span>
+      </div>
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/calendar.svg">
+        <span>28 de febreiro de 2026</span>
+      </div>
+      <div class="hero-card">
+        <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/clock.svg">
+        <span>9:00h - 21:00h</span>
+      </div>
     </div>
+
     <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
   </div>
 </header>
@@ -249,62 +322,53 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   <a href="#registro">Rexistro</a>
 </nav>
 
+<!-- CONTENIDO -->
 <div class="container">
 
   <!-- PRESENTACIÓN -->
   <section id="presentacion" class="section">
     <h2>Presentación</h2>
-    <p>Estas xornadas nacen coa vontade de crear un espazo de formación, reflexión e encontro arredor do coidado da saúde física e mental no ámbito deportivo. Buscan ofrecer ferramentas sinxelas, prácticas e aplicables ao día a día, tanto dentro como fóra do deporte.</p>
-    <p>A actividade vai dirixida a xogadoras e xogadores, persoal técnico, familias e calquera persoa interesada en aprender como coidar e reforzar o seu benestar físico e emocional.</p>
+    <p>Estas xornadas nacen coa vontade de crear un espazo de formación, reflexión e encontro arredor do coidado da saúde física e mental no ámbito deportivo...</p>
   </section>
 
   <!-- OBJETIVOS -->
   <section id="obxectivos" class="section">
     <h2>Obxectivos</h2>
     <ul class="objetivos-list">
-      <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/book-open.svg" alt="Comprender">Proporcionar recursos para comprender mellor o funcionamento do corpo e as súas necesidades.</li>
-      <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg" alt="Xestionar">Axudar a xestionar as esixencias físicas e emocionais tanto da práctica deportiva como da vida diaria.</li>
-      <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/settings.svg" alt="Ferramentas">Ofrecer ferramentas que permitan incorporar hábitos saudables e sostibles no tempo.</li>
-      <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" alt="Sensibilizar">Sensibilizar sobre a importancia da saúde mental e emocional no rendemento deportivo e no benestar global.</li>
-      <li><img class="icon" src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" alt="Inclusión">Crear un espazo accesible a persoas de todas as idades e niveis de práctica, favorecendo a inclusión e a aprendizaxe común.</li>
+      <li><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/book-open.svg" class="icon">Proporcionar recursos para comprender mellor o funcionamento do corpo e as súas necesidades.</li>
+      <li><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/heart-pulse.svg" class="icon">Axudar a xestionar as esixencias físicas e emocionais tanto da práctica deportiva como da vida diaria.</li>
+      <li><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/tool.svg" class="icon">Ofrecer ferramentas que permitan incorporar hábitos saudables e sostibles no tempo.</li>
+      <li><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/brain.svg" class="icon">Sensibilizar sobre a importancia da saúde mental e emocional no rendemento deportivo e no benestar global.</li>
+      <li><img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/users.svg" class="icon">Crear un espazo accesible a persoas de todas as idades e niveis de práctica, favorecendo a inclusión e a aprendizaxe común.</li>
     </ul>
   </section>
 
-    <!-- PONENTES -->
+  <!-- PONENTES -->
   <section id="ponentes" class="section">
     <h2>Poñentes</h2>
     <div class="ponentes-grid">
-      <!-- Ponente confirmado -->
       <div class="ponente-card" onclick="toggleDescription(this)">
-        <div class="ponente-photo">
-          <img src="images/ines_miras.jpeg" alt="Inés Mirás">
-        </div>
+        <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Inés Mirás"></div>
         <h3>Irene Mirás</h3>
         <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
         <p class="descripcion">Foi deportista de alto nivel en piragüismo, onde comezou a súa vocación pola nutrición e, principalmente, na nutrición deportiva. Actualmente traballa con deportista de alto nivel e amateures de diferentes disciplinas. Tamén é antropometrista ISAK II e conta cun máster en Suplementación Deportiva.</p>
       </div>
-
       <!-- Ponentes pendientes -->
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-      <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
       <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     </div>
   </section>
 
-  <!-- PROGRAMA -->
+  <!-- PROGRAMA / TIMELINE -->
   <section id="programa" class="section">
     <h2>Programa</h2>
     <p>Explora as actividades do día elixindo mañá ou tarde:</p>
+
     <div class="timeline-buttons">
-      <button onclick="showTimeline('mana')">Mañá</button>
-      <button onclick="showTimeline('tarde')">Tarde</button>
+      <button id="btn-mana">Mañá</button>
+      <button id="btn-tarde">Tarde</button>
     </div>
 
-    <!-- Timeline Mañá -->
     <div id="timeline-mana" class="timeline-list" style="display:none;">
       <div class="timeline-event charla"><span class="time">09:00 - 10:00</span> Charla Inaugural</div>
       <div class="timeline-event charla"><span class="time">10:00 - 11:00</span> Taller de Nutrición Deportiva</div>
@@ -313,7 +377,6 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
       <div class="timeline-event pausa"><span class="time">12:30 - 13:00</span> Pausa</div>
     </div>
 
-    <!-- Timeline Tarde -->
     <div id="timeline-tarde" class="timeline-list" style="display:none;">
       <div class="timeline-event charla"><span class="time">16:00 - 17:00</span> Sesión de Estiramentos</div>
       <div class="timeline-event charla"><span class="time">17:00 - 18:00</span> Charla Recuperación Post-Competición</div>
@@ -325,13 +388,13 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   <!-- REGISTRO -->
   <section id="registro" class="section">
     <h2>Rexistro</h2>
-    <p>Para participar, completa o formulario de inscrición. A praza é limitada!</p>
-    <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme</a>
+    <p>Podes inscribirte no seguinte enlace:</p>
+    <a class="registro-button" href="https://formulario-xornadas.gal" target="_blank">Inscribirme ás Xornadas</a>
   </section>
 
 </div>
 
-<!-- PARTNERS -->
+<!-- ENTIDADES COLABORADORAS -->
 <div class="partners">
   <img src="images/Concello de Santiago.png" alt="Concello de Santiago">
   <img src="images/xunta.png" alt="Xunta de Galicia">
@@ -342,8 +405,8 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 <footer>
   <div class="footer-container">
     <div class="footer-left">
-      <img src="images/ESCUDO.png" alt="Escudo del Club">
-      <img src="images/10aniversario.png" alt="10º Aniversario">
+      <img class="club-logo" src="images/ESCUDO.png" alt="Escudo del Club">
+      <img class="logo-aniversario" src="images/10aniversario.png" alt="10º Aniversario">
     </div>
     <div class="footer-right">
       <div class="contact-info">
@@ -362,52 +425,54 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 <!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn">↑</div>
 
+<!-- JS -->
 <script>
-// Mostrar descripción ponentes
-function toggleDescription(card){
-  const desc = card.querySelector('.descripcion');
-  desc.style.display = (desc.style.display==='block') ? 'none' : 'block';
-}
-
-// Mostrar timeline
-function showTimeline(turno){
-  const mana = document.getElementById('timeline-mana');
-  const tarde = document.getElementById('timeline-tarde');
-  const buttons = document.querySelectorAll('.timeline-buttons button');
-  buttons.forEach(b => b.classList.remove('active'));
-  if(turno==='mana'){
-    mana.style.display='block';
-    tarde.style.display='none';
-    buttons[0].classList.add('active');
-  } else {
-    mana.style.display='none';
-    tarde.style.display='block';
-    buttons[1].classList.add('active');
-  }
-}
-
-// Botón volver arriba
+const sections = document.querySelectorAll('.section');
+const heroCards = document.querySelectorAll('.hero-card');
 const topBtn = document.getElementById("topBtn");
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
-  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) { topBtn.style.display = "block"; } 
-  else { topBtn.style.display = "none"; }
-}
-topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
 
-// Animación scroll secciones
-const sections = document.querySelectorAll('.section, .hero-card');
+// Animación scroll
+function checkVisible() {
+  const scrollY = window.pageYOffset + window.innerHeight * 0.8;
+  sections.forEach(s => { if(scrollY > s.offsetTop) s.classList.add('visible'); });
+  heroCards.forEach(c => { if(scrollY > c.offsetTop) c.classList.add('visible'); });
+}
+
+// Toggle descripción del ponente
+function toggleDescription(card) {
+  const desc = card.querySelector('.descripcion');
+  if(desc) desc.style.display = (desc.style.display === 'block') ? 'none' : 'block';
+}
+
 window.addEventListener('scroll', () => {
-  const scrollY = window.pageYOffset;
-  sections.forEach(section => {
-    if(section.offsetTop < scrollY + window.innerHeight - 100){
-      section.classList.add('visible');
-    }
-  });
+  checkVisible();
+  if (window.scrollY > 400) topBtn.style.display = "block";
+  else topBtn.style.display = "none";
 });
-window.addEventListener('load', () => sections.forEach(s=>{ if(window.scrollY + window.innerHeight -100>s.offsetTop) s.classList.add('visible'); }));
+
+topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
+window.addEventListener('load', checkVisible);
+
+// Timeline buttons
+const btnMana = document.getElementById('btn-mana');
+const btnTarde = document.getElementById('btn-tarde');
+const timelineMana = document.getElementById('timeline-mana');
+const timelineTarde = document.getElementById('timeline-tarde');
+
+btnMana.addEventListener('click', () => {
+  timelineMana.style.display = 'block';
+  timelineTarde.style.display = 'none';
+  btnMana.classList.add('active');
+  btnTarde.classList.remove('active');
+});
+
+btnTarde.addEventListener('click', () => {
+  timelineMana.style.display = 'none';
+  timelineTarde.style.display = 'block';
+  btnTarde.classList.add('active');
+  btnMana.classList.remove('active');
+});
 </script>
 
 </body>
 </html>
-
