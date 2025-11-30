@@ -139,6 +139,25 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .label-charla { background:#fff0f0; border-color:#f3c3c3; }
 .label-pausa { background:#f5f5f5; }
 
+/* Timeline compacto para todas las pantallas */
+.timeline-list.compacto {
+  padding-left: 0;       /* quitar espacio a la izquierda */
+}
+.timeline-list.compacto::before {
+  display: none;         /* ocultar línea vertical */
+}
+.timeline-list.compacto .timeline-event {
+  flex-direction: column;      /* bloques verticales */
+  align-items: flex-start;
+  gap: 6px;
+  border-left: none;           /* quitar borde izquierdo */
+  border-top: 4px solid #900;  /* borde superior para diferenciar */
+  transform: translateY(20px); /* animación inicial */
+}
+.timeline-list.compacto .timeline-event.charla { border-top: 4px solid #c44; }
+.timeline-list.compacto .timeline-event.pausa { border-top: 4px dashed #aaa; }
+.timeline-list.compacto .timeline-event::before { display: none; } /* quitar círculos */  
+
 /* ---------------------- PARTNERS ---------------------- */
 .partners { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; padding:45px 0; }
 .partners img { height:60px; filter:brightness(1.1); transition:0.3s; }
@@ -337,7 +356,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
     <button id="btn-tarde">Tarde</button>
   </div>
 
-  <div id="timeline-mana" class="timeline-list">
+  <div id="timeline-mana" class="timeline-list compacto" style="display:none;">
     <div class="timeline-event charla">
       <span class="time">9:00 - 10:00</span>
       <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/mic.svg" alt="Charla">
@@ -365,7 +384,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
     </div>
   </div>
 
-  <div id="timeline-tarde" class="timeline-list" style="display:none;">
+  <div id="timeline-tarde" class="timeline-list compacto" style="display:none;">
     <div class="timeline-event charla">
       <span class="time">15:00 - 16:00</span>
       <img src="https://cdn.jsdelivr.net/gh/lucide-icons/lucide/icons/activity.svg" alt="Taller">
@@ -502,29 +521,23 @@ const timelineMana = document.getElementById('timeline-mana');
 const timelineTarde = document.getElementById('timeline-tarde');
 
 function showTimeline(timelineToShow, btnActive, btnInactive) {
+  const timelineOculto = (timelineToShow === timelineMana ? timelineTarde : timelineMana);
+  timelineOculto.style.display = 'none';
+
   timelineToShow.style.display = 'block';
-  (timelineToShow === timelineMana ? timelineTarde : timelineMana).style.display = 'none';
   btnActive.classList.add('active');
   btnInactive.classList.remove('active');
 
-  // Animación: resetear y observar de nuevo
-  timelineToShow.querySelectorAll('.timeline-event').forEach(ev => {
+  // Animación tipo "cascade"
+  const events = timelineToShow.querySelectorAll('.timeline-event');
+  events.forEach((ev, i) => {
     ev.classList.remove('visible');
-    setTimeout(() => ev.classList.add('visible'), 50);
+    setTimeout(() => ev.classList.add('visible'), i * 100);
   });
 }
 
-btnMana.addEventListener('click', () => {
-  showTimeline(timelineMana, btnMana, btnTarde);
-});
-btnTarde.addEventListener('click', () => {
-  showTimeline(timelineTarde, btnTarde, btnMana);
-});
-
-// Mostrar mañana por defecto al cargar
-window.addEventListener('load', () => {
-  showTimeline(timelineMana, btnMana, btnTarde);
-});
+btnMana.addEventListener('click', () => showTimeline(timelineMana, btnMana, btnTarde));
+btnTarde.addEventListener('click', () => showTimeline(timelineTarde, btnTarde, btnMana));
 </script>
 
 </body>
