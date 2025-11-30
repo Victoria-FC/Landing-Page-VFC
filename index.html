@@ -21,7 +21,7 @@ header {
 }
 header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.55); z-index:0; }
 .hero-content { position:relative; z-index:1; max-width:1000px; margin:0 auto; }
-header h1 { font-size:3.4em; font-weight:700; color:white; text-shadow:0 2px 8px rgba(0,0,0,0.6); }
+header h1 { font-size:3.4em; font-weight:700; color:white; text-shadow:0 2px 8px rgba(0,0,0,0.6);}
 header p { font-size:1.3em; margin-top:10px; opacity:0.95; text-shadow:0 1px 5px rgba(0,0,0,0.5); }
 
 /* ---------------------- NAV ---------------------- */
@@ -33,98 +33,69 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .hero-cards { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin:40px 0; }
 .hero-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border-radius:18px; padding:28px 22px; width:180px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.3); opacity:0; transform:translateY(30px); transition:0.6s ease, box-shadow 0.3s ease; }
 .hero-card.visible { opacity:1; transform:translateY(0); }
-.hero-card img { width:50px; height:50px; margin-bottom:12px; filter: brightness(0) invert(1); }
+.hero-card img { width:50px; height:50px; margin-bottom:12px; filter: brightness(0) invert(1);}
 .hero-card span { font-weight:600; display:block; font-size:1em; }
 .hero-card:hover { transform:translateY(-5px) scale(1.07); box-shadow:0 12px 28px rgba(0,0,0,0.45); }
 
 /* ---------------------- BOTÓN REGISTRO ---------------------- */
-.registro-button { display:inline-block; margin-top:25px; background:#900; color:#fff; padding:20px 45px; border-radius:35px; font-weight:bold; font-size:1.35em; transition: all 0.4s ease; box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 -3px 0 rgba(0,0,0,0.2); }
+.registro-button { display:inline-block; margin-top:25px; background:#900; color:#fff; padding:20px 45px; border-radius:35px; font-weight:bold; font-size:1.35em; transition: all 0.4s ease; box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 -3px 0 rgba(0,0,0,0.2);}
 .registro-button:hover { background:#000; box-shadow: 0 6px 20px rgba(0,0,0,0.4), inset 0 -3px 0 rgba(255,0,0,0.5); transform:scale(1.08); }
 
-/* ---------------------- SECCIONES (Presentación base) ---------------------- */
-.container { max-width:1000px; margin:50px auto; padding:0 20px; box-sizing:border-box; }
-.section {
-  width:100%;
-  box-sizing:border-box;
-  background: linear-gradient(145deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
-  color:#333;
-  padding:45px 35px;
-  border-radius:16px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.12);
-  margin-bottom:45px;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(200,200,200,0.3);
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.8s ease-out;
-}
+/* ---------------------- SECCIONES ---------------------- */
+.container { max-width:1000px; margin:50px auto; padding:0 20px; }
+.section { background: linear-gradient(145deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95)); color:#333; padding:45px 35px; border-radius:16px; box-shadow:0 12px 30px rgba(0,0,0,0.12); margin-bottom:45px; backdrop-filter: blur(6px); border: 1px solid rgba(200,200,200,0.3); opacity:0; transform:translateY(30px); transition:0.8s ease-out; }
 .section.visible { opacity:1; transform:translateY(0); }
 .section h2 { color:#900; font-size:1.85em; margin-bottom:22px; position:relative; font-weight:700; }
 .section h2::after { content:""; display:block; width:100px; height:3px; background:#ff0000; margin-top:6px; border-radius:1px; }
 .section p, .section ul li { margin-bottom:14px; font-size:1.05em; }
 
-/* ---------------------- OBXECTIVOS ---------------------- */
-.section h2 {
-  color:#C62828; /* color del título de esta sección */
-  font-size:1.6em;
-  margin-bottom:1rem;
-}
-.objetivos-list { list-style:none; padding:0; margin:0; }
-.objetivos-list li {
-  display:flex; align-items:flex-start;
-  margin-bottom:18px; font-size:1.05em; line-height:1.5;
-}
-.objetivos-list li .icon {
-  width:28px; height:28px; margin-right:12px; flex-shrink:0;
-  filter: invert(27%) sepia(97%) saturate(747%) hue-rotate(340deg) brightness(90%) contrast(90%);
-}
-.objetivos-list li span { display:inline-block; }
-
 /* ---------------------- PONENTES ---------------------- */
-.ponentes-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap:25px;
-  justify-items:center;
-}
-.ponente-card {
-  text-align:center;
-  cursor:pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.ponente-card:hover { transform:scale(1.05); box-shadow:0 6px 18px rgba(0,0,0,0.15); }
-.ponente-photo {
-  width:130px; height:130px; border-radius:50%; border:3px solid #ff0000;
-  overflow:hidden; margin:0 auto 12px; display:flex; align-items:center; justify-content:center;
-}
+.ponentes-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:25px; justify-items:center; }
+.ponente-card { text-align:center; cursor:pointer; transition: transform 0.3s ease; }
+.ponente-card:hover { transform:scale(1.05); }
+.ponente-photo { width:130px; height:130px; border-radius:50%; border:3px solid #ff0000; overflow:hidden; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; }
 .ponente-photo img { width:100%; height:100%; object-fit:cover; }
 .ponente-card h3 { font-size:1.1em; font-weight:700; margin-bottom:4px; }
 .ponente-card .cargo { font-size:0.95em; color:#555; margin-bottom:6px; }
+.descripcion { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.5s ease; opacity: 0; }
+.descripcion.open { max-height: 200px; opacity: 1; }
 
-/* Descripción oculta dentro de la tarjeta (opcional) */
-.descripcion { max-height:0; overflow:hidden; transition:max-height 0.5s ease, opacity 0.5s ease; opacity:0; }
-.descripcion.open { max-height:200px; opacity:1; }
-
-/* ---------------------- MODAL ---------------------- */
-// .modal {
-//   display:none; position:fixed; z-index:999; left:0; top:0; width:100%; height:100%;
-//   background:rgba(0,0,0,0.6); opacity:0; transition:opacity 0.3s ease;
-// }
-// .modal.show { display:block; opacity:1; }
-// .modal-content {
-//   background:#fff; color:#333; margin:8% auto; padding:20px; border-radius:8px;
-//   max-width:600px; box-shadow:0 5px 20px rgba(0,0,0,0.4); animation:fadeInUp 0.3s ease;
-// }
-// .close { float:right; font-size:1.5em; cursor:pointer; }
-// @keyframes fadeInUp { from{ transform:translateY(30px); opacity:0; } to{ transform:translateY(0); opacity:1; } }
-
-/* ---------------------- PROGRAMA (Mejorado) ---------------------- */
-.timeline-buttons,
-.timeline-list {
-  max-width:100%;
-  box-sizing:border-box;
+/* ---------------------- OBJETIVOS ---------------------- */
+/* ---------------------- OBJETIVOS ---------------------- */
+.section h2 {
+  color: #C62828; /* color del título */
+  font-size: 1.6em;
+  margin-bottom: 1rem;
 }
 
+.objetivos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.objetivos-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+.objetivos-list li .icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  /* filtro para teñir los SVG externos con el mismo rojo del título */
+  filter: invert(27%) sepia(97%) saturate(747%) hue-rotate(340deg) brightness(90%) contrast(90%);
+}
+
+.objetivos-list li span {
+  display: inline-block;
+}
+
+/* ---------------------- PROGRAMA (Mejorado) ---------------------- */
 .timeline-buttons { text-align:center; margin-bottom:30px; }
 .timeline-buttons button {
   background:#fff; border:2px solid #900; color:#900;
@@ -133,34 +104,33 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .timeline-buttons button:hover { background:#f5f5f5; }
 .timeline-buttons button.active { background:#900; color:#fff; border-color:#900; }
 
-.timeline-list { position:relative; margin:30px 0; padding-left:80px; }
+.timeline-list { position: relative; margin: 30px 0; padding-left: 80px; }
 .timeline-list::before { content:''; position:absolute; left:40px; top:0; bottom:0; width:4px; background:#900; }
 
 .timeline-event {
-  position:relative; margin-bottom:25px; padding:14px 22px; border-radius:12px;
-  background:#fff; color:#333; opacity:0; transform:translateX(-40px);
-  transition: transform 0.6s ease, opacity 0.6s ease; display:flex; align-items:center; gap:10px;
+  position: relative; margin-bottom: 25px; padding: 14px 22px; border-radius: 12px;
+  background:#fff; color:#333; opacity: 0; transform: translateX(-40px);
+  transition: transform 0.6s ease, opacity 0.6s ease; display: flex; align-items:center; gap:10px;
   box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
-.timeline-event.visible { opacity:1; transform:translateX(0); }
-
+.timeline-event.visible { opacity: 1; transform: translateX(0); }
 .timeline-event::before {
-  content:''; position:absolute; left:32px; top:50%; width:16px; height:16px; border-radius:50%;
-  transform:translateY(-50%); border:3px solid #fff;
+  content: ''; position: absolute; left: 32px; top: 50%; width: 16px; height: 16px; border-radius: 50%;
+  transform: translateY(-50%); border: 3px solid #fff;
 }
 .timeline-event.charla::before { background:#c44; }
 .timeline-event.pausa::before { background:#aaa; }
 
 .timeline-event.charla {
   background: linear-gradient(135deg, #ffe5e5, #fff);
-  border-left:5px solid #c44;
+  border-left: 5px solid #c44;
 }
 .timeline-event.pausa {
   background: linear-gradient(135deg, #e5e5e5, #fff);
-  border-left:5px dashed #aaa;
+  border-left: 5px dashed #aaa;
 }
 
-.timeline-event .time { font-weight:600; color:#900; margin-right:8px; }
+.timeline-event .time { font-weight: 600; color:#900; margin-right:8px; }
 .timeline-event img { width:20px; height:20px; flex-shrink:0; }
 
 /* Etiquetas de bloque (opcional) */
@@ -186,11 +156,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 .social-icons img:hover { transform:scale(1.2); }
 
 /* ---------------------- BOTÓN VOLVER ARRIBA ---------------------- */
-#topBtn {
-  position:fixed; right:25px; bottom:25px; background:#900; color:white;
-  padding:14px 18px; border-radius:50%; font-size:24px; cursor:pointer;
-  box-shadow:0 0 18px rgba(0,0,0,0.5); display:none; transition:0.3s; z-index:999;
-}
+#topBtn { position:fixed; right:25px; bottom:25px; background:#900; color:white; padding:14px 18px; border-radius:50%; font-size:24px; cursor:pointer; box-shadow:0 0 18px rgba(0,0,0,0.5); display:none; transition:0.3s; z-index:999; }
 #topBtn:hover { background:#ff0000; }
 
 /* ---------------------- RESPONSIVE ---------------------- */
@@ -222,7 +188,6 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
   .hero-card { width:130px; padding:18px 15px; }
   .registro-button { font-size:1.1em; padding:15px 30px; }
 }
-
 </style>
 </head>
 <body>
@@ -301,22 +266,11 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 <section id="ponentes" class="section">
   <h2>Poñentes</h2>
   <div class="ponentes-grid">
-    <div class="ponente-card" onclick="openModal(this)">
-      <div class="ponente-photo">
-        <img src="images/ines_miras.jpeg" alt="Irene Mirás" loading="lazy">
-      </div>
+    <div class="ponente-card" onclick="toggleDescription(this)">
+      <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás" loading="lazy"></div>
       <h3>Irene Mirás</h3>
       <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
-      <p class="descripcion">
-        Foi deportista de alto nivel en piragüismo donde comezou a súa vocación pola nutrición e, en especial, a nutrición deportiva. Actualmente traballa con deportistas de alto nivel e amateur de diferentes disciplinas. É, tamén, antropometrista ISAK II e conta con Máster en suplementación deportiva.
-      </p>
-    </div>
-
-    <div class="ponente-card" onclick="openModal(this)">
-      <div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div>
-      <h3>Pendiente de revelar</h3>
-      <p class="cargo">Próximamente</p>
-      <p class="descripcion"></p>
+      <p class="descripcion">Foi deportista de alto nivel en piragüismo donde comezou a súa vocación pola nutrición e, en especial, a nutrición deportiva. Actualmente traballa con deportistas de alto nivel e amateur de diferentes disciplinas. É, tamén, antropometrista ISAK II e conta con Máster en suplementación deportiva.</p>
     </div>
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
@@ -325,18 +279,8 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-  </div>
   </div>
 </section>
-
-<!-- MODAL -->
-<div id="ponente-modal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="modal-body"></div>
-  </div>
-</div>
-
 
 <!-- PROGRAMA / TIMELINE -->
 <section id="programa" class="section">
@@ -500,42 +444,6 @@ btnTarde.addEventListener('click', () => {
 window.addEventListener('load', () => {
   showTimeline(timelineMana, btnMana, btnTarde);
 });
-
-// Seleccionamos el modal y sus elementos
-const modal = document.getElementById("ponente-modal");
-const modalBody = modal.querySelector(".modal-body");
-const closeBtn = modal.querySelector(".close");
-
-// Función para abrir el modal con la info del ponente
-function openModal(card) {
-  const nombre = card.querySelector("h3").textContent;
-  const cargo = card.querySelector(".cargo").textContent;
-  const descripcion = card.querySelector(".descripcion").textContent;
-  const foto = card.querySelector("img").src;
-
-  modalBody.innerHTML = `
-    <img src="${foto}" alt="${nombre}" style="width:100%;max-height:250px;object-fit:cover;border-radius:6px;margin-bottom:15px;">
-    <h3>${nombre}</h3>
-    <p><em>${cargo}</em></p>
-    <p>${descripcion}</p>
-  `;
-
-  // Mostrar modal con clase .show (fade-in)
-  modal.classList.add("show");
-}
-
-// Cerrar modal al hacer click en la X
-closeBtn.addEventListener("click", () => {
-  modal.classList.remove("show");
-});
-
-// Cerrar modal al hacer click fuera del contenido
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("show");
-  }
-});
-  
 </script>
 
 </body>
