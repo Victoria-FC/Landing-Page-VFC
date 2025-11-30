@@ -27,10 +27,7 @@ header h1 { font-size:3.4em; font-weight:700; color:white; text-shadow:0 2px 8px
 header p { font-size:1.3em; margin-top:10px; opacity:0.95; text-shadow:0 1px 5px rgba(0,0,0,0.5); }
 
 /* ---------------------- NAV ---------------------- */
-nav {
-  display:flex; justify-content:center; flex-wrap:wrap;
-  background:#000; position:sticky; top:0; z-index:20; border-bottom:3px solid #ff0000;
-}
+nav { display:flex; justify-content:center; flex-wrap:wrap; background:#000; position:sticky; top:0; z-index:20; border-bottom:3px solid #ff0000; }
 nav a { color:#fff; margin:5px 20px; padding:12px 0; font-weight:600; transition:0.3s; }
 nav a:hover { color:#ff0000; transform:translateY(-3px); }
 
@@ -75,17 +72,13 @@ nav a:hover { color:#ff0000; transform:translateY(-3px); }
 .timeline-buttons button:hover { background:#bbb; }
 .timeline-buttons button.active { background:#900; color:white; border:2px solid #ff0000; }
 
-.timeline-list { position: relative; margin: 30px 0; padding-left: 40px; }
-.timeline-list::before { content:''; position:absolute; left:15px; top:0; bottom:0; width:4px; background:#900; }
+/* Línea y bullets alineados */
+.timeline-list { position: relative; margin: 30px 0; padding-left: 80px; }
+.timeline-list::before { content:''; position:absolute; left:40px; top:0; bottom:0; width:4px; background:#900; }
 
-.timeline-event {
-  position: relative; margin-bottom: 25px; padding: 12px 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); background:#f0f0f0; color:#333;
-}
-.timeline-event::before {
-  content:'';
-  position:absolute; left:12px; top:50%; width:16px; height:16px; border-radius:50%; transform:translateY(-50%); border:3px solid #fff;
-}
-.timeline-event.charla::before { background:#c44; } /* rojo más suave */
+.timeline-event { position: relative; margin-bottom: 25px; padding: 12px 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); background:#f0f0f0; color:#333; }
+.timeline-event::before { content:''; position:absolute; left:32px; top:50%; width:16px; height:16px; border-radius:50%; transform:translateY(-50%); border:3px solid #fff; }
+.timeline-event.charla::before { background:#c44; }
 .timeline-event.pausa::before { background:#aaa; }
 .timeline-event.charla { border-left: 4px solid #c44; }
 .timeline-event.pausa { border-left: 4px dashed #aaa; }
@@ -190,13 +183,13 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
       <p class="descripcion">Foi deportista de alto nivel en piragüismo, traballa con deportistas de alto nivel e amatéur...</p>
     </div>
     <!-- Ponentes pendientes -->
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
-    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     <!-- más ponentes pendientes aquí -->
   </div>
 </section>
@@ -254,9 +247,9 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
         <p><a href="mailto:victoriafemenino@gmail.com">victoriafemenino@gmail.com</a></p>
       </div>
       <div class="social-icons">
-        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png"></a>
-        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png"></a>
-        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png"></a>
+        <a href="https://www.facebook.com/Victoriaf.c.feminas?locale=es_ES" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+        <a href="https://www.youtube.com/@victoriaf.c.feminas1450" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
+        <a href="https://www.instagram.com/victoriafcfem/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
       </div>
     </div>
   </div>
