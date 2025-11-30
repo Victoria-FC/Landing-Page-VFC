@@ -159,6 +159,50 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 #topBtn { position:fixed; right:25px; bottom:25px; background:#900; color:white; padding:14px 18px; border-radius:50%; font-size:24px; cursor:pointer; box-shadow:0 0 18px rgba(0,0,0,0.5); display:none; transition:0.3s; z-index:999; }
 #topBtn:hover { background:#ff0000; }
 
+/* ---------------------- MODAL ---------------------- */
+.modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 30px 25px;
+  border-radius: 16px;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header h3 { margin-bottom: 5px; color: #C62828; }
+.modal-header p { margin-bottom: 15px; font-weight: 500; color: #555; }
+.modal-body { font-size: 1em; line-height: 1.5; }
+
+.modal .close {
+  position: absolute;
+  top: 12px; right: 18px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #900;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal .close:hover { color: #ff0000; }
+  
 /* ---------------------- RESPONSIVE ---------------------- */
 @media(max-width:768px){
   header h1 { font-size:2.6em; }
@@ -385,6 +429,18 @@ footer { background:#000; color:white; padding:45px 20px; border-top:2px solid #
 <!-- BOTÓN VOLVER ARRIBA -->
 <div id="topBtn" aria-label="Volver arriba">↑</div>
 
+<!-- ================= MODAL ================= -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="modal-header">
+      <h3 id="modal-nombre"></h3>
+      <p id="modal-cargo"></p>
+    </div>
+    <div class="modal-body" id="modal-descripcion"></div>
+  </div>
+</div>  
+  
 <script>
 // ================= HERO CARDS & SECTIONS =================
 const sections = document.querySelectorAll('.section');
@@ -409,10 +465,35 @@ window.addEventListener('scroll', () => {
 topBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:'smooth' }));
 
 // ================== PONENTES ==================
-function toggleDescription(card) {
-  const desc = card.querySelector('.descripcion');
-  if(desc) desc.classList.toggle('open');
+const modal = document.getElementById('modal');
+const modalNombre = document.getElementById('modal-nombre');
+const modalCargo = document.getElementById('modal-cargo');
+const modalDescripcion = document.getElementById('modal-descripcion');
+const spanClose = modal.querySelector('.close');
+
+function openModal(card) {
+  const nombre = card.querySelector('h3').textContent;
+  const cargo = card.querySelector('.cargo').textContent;
+  const descripcion = card.querySelector('.descripcion').textContent;
+
+  modalNombre.textContent = nombre;
+  modalCargo.textContent = cargo;
+  modalDescripcion.textContent = descripcion || "Pendiente de revelar información.";
+  modal.style.display = 'block';
 }
+
+// Cerrar al hacer clic en la X
+spanClose.onclick = () => modal.style.display = 'none';
+
+// Cerrar al hacer clic fuera del contenido
+window.onclick = (event) => {
+  if(event.target === modal) modal.style.display = 'none';
+}
+
+// Asignar evento a cada ponente
+document.querySelectorAll('.ponente-card').forEach(card => {
+  card.addEventListener('click', () => openModal(card));
+});
 
 // ================== TIMELINE ==================
 const btnMana = document.getElementById('btn-mana');
