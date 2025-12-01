@@ -61,6 +61,25 @@ nav a:hover { color:#900; transform:translateY(-3px); }
 .descripcion { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.5s ease; opacity: 0; }
 .descripcion.open { max-height: 200px; opacity: 1; }
 
+/* ---------- ESTILO PARA PONENTES OCULTOS ---------- */
+
+.ponente-card.oculto > *:not(.placeholder) {
+  display:none !important;     /* oculta la info real */
+}
+.ponente-card.oculto .placeholder {
+  display:block;
+  text-align:center;
+}
+.ponente-card .placeholder {
+  display:none;                /* No visible en ponentes normales */
+}
+.ponente-card.oculto {
+  cursor:default;              /* No clicable */
+}
+.ponente-card.oculto:hover {
+  transform:none;              /* No zoom */
+}  
+
 /* ---------------------- OBJETIVOS ---------------------- */
 .section h2 {
   color: #C62828; /* color del título */
@@ -319,12 +338,35 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
 <section id="ponentes" class="section">
   <h2>Poñentes</h2>
   <div class="ponentes-grid">
+    
+    <!-- PONENTE VISIBLE -->
     <div class="ponente-card" onclick="toggleDescription(this)">
       <div class="ponente-photo"><img src="images/ines_miras.jpeg" alt="Irene Mirás" loading="lazy"></div>
       <h3>Irene Mirás</h3>
       <p class="cargo">Dietista - nutricionista especializada en nutrición deportiva</p>
       <p class="descripcion">Foi deportista de alto nivel en piragüismo donde comezou a súa vocación pola nutrición e, en especial, a nutrición deportiva. Actualmente traballa con deportistas de alto nivel e amateur de diferentes disciplinas. É, tamén, antropometrista ISAK II e conta con Máster en suplementación deportiva.</p>
     </div>
+
+    <!-- PONENTE OCULTO (se muestra como interrogante) -->
+    <div class="ponente-card oculto">
+      <div class="ponente-photo">
+        <img src="images/ines_miras.jpeg" alt="Nombre real" loading="lazy">
+      </div>
+      <h3>Nombre real</h3>
+      <p class="cargo">Cargo real</p>
+      <p class="descripcion">Descripción real</p>
+
+      <!-- VERSIÓN PLACEHOLDER -->
+      <div class="placeholder">
+        <div class="ponente-photo">
+          <img src="images/interrogante.png" alt="Pendiente">
+        </div>
+        <h3>Pendiente de revelar</h3>
+        <p class="cargo">Próximamente</p>
+      </div>
+    </div>
+
+    <!-- 
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
@@ -332,6 +374,7 @@ footer { background:#000; color:white; padding:45px 20px; border-top:5px solid #
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
     <div class="ponente-card"><div class="ponente-photo"><img src="images/interrogante.png" alt="Pendiente" loading="lazy"></div><h3>Pendiente de revelar</h3><p class="cargo">Próximamente</p><p class="descripcion"></p></div>
+    -->
   </div>
 </section>
 
