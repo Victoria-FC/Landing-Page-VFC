@@ -62,39 +62,17 @@ nav a:hover { color:#900; transform:translateY(-3px); }
 .descripcion.open { max-height: 200px; opacity: 1; }
 
 /* ---------------- MULTI-FOTO ---------------- */
-/* MULTI-FOTO (parejas con solapamiento y círculos perfectos) */
 .multi-photo {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 0;               /* el solapamiento lo da el margin */
-  height: 130px;        /* altura del contenedor igual a una foto */
+  gap: 0px;
 }
 
 .multi-photo .ponente-photo {
-  width: 110px;         /* ancho igual a alto para que sea círculo */
-  height: 110px;        /* altura igual al ancho */
-  border-radius: 50%;
-  border: 3px solid #900;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: -25px;   /* solapamiento de los círculos */
+  width:130px;
+  height:130px;
 }
 
-.multi-photo .ponente-photo:first-child {
-  margin-left: 0;       /* la primera foto no se desplaza */
-}
-
-.multi-photo .ponente-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-  
 /* ---------- ESTILO PARA PONENTES OCULTOS ---------- */
 
 .ponente-card.oculto > *:not(.placeholder) {
