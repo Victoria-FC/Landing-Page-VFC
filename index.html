@@ -92,6 +92,12 @@ nav a:hover { color:#900; transform:translateY(-3px); }
   transform:none;              /* No zoom */
 }  
 
+/* ---------- CORRECCIÓN ÚLTIMO PONENTE ---------- */
+.ponente-card:last-child {
+  justify-self: center;     /* centra en la fila */
+  grid-column: 1 / -1;     /* ocupa toda la fila del grid */
+}  
+
 /* ---------------------- OBJETIVOS ---------------------- */
 .section h2 {
   color: #C62828; /* color del título */
