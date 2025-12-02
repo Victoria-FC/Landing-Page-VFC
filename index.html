@@ -62,16 +62,38 @@ nav a:hover { color:#900; transform:translateY(-3px); }
 .descripcion.open { max-height: 200px; opacity: 1; }
 
 /* ---------------- MULTI-FOTO ---------------- */
+/* MULTI-FOTO (parejas con solapamiento) */
 .multi-photo {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 0;               /* sin espacio entre fotos, se solapan con margin negativo */
+  height: 130px;         /* misma altura que una foto normal */
+  align-items: center;
+  position: relative;
 }
 
 .multi-photo .ponente-photo {
-  width:110px;
-  height:110px;
+  width: 70px;           /* ancho reducido para solaparse */
+  height: 130px;         /* misma altura que una foto individual */
+  border-radius: 50%;
+  border: 3px solid #900;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -20px;    /* solapamiento hacia la izquierda */
 }
+
+.multi-photo .ponente-photo:first-child {
+  margin-left: 0;        /* la primera no se desplaza */
+}
+
+.multi-photo .ponente-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
   
 /* ---------- ESTILO PARA PONENTES OCULTOS ---------- */
 
